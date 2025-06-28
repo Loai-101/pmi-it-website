@@ -1,17 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { FaChevronLeft, FaChevronRight, FaProjectDiagram, FaUserCircle, FaRegWindowMaximize, FaMobileAlt, FaCloud, FaCogs, FaDatabase, FaRobot, FaLaptopCode, FaNetworkWired, FaServer, FaChartBar, FaLock, FaGlobe } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import PartnershipSlider from '../components/PartnershipSlider';
 import './Home.css';
-
-const ICON_POOL = [
-  FaRegWindowMaximize, FaMobileAlt, FaCloud, FaCogs, FaDatabase, FaRobot, FaLaptopCode, FaNetworkWired, FaServer, FaChartBar, FaLock, FaGlobe, FaProjectDiagram, FaUserCircle
-];
-const ICON_COLORS = [
-  '#667eea', '#764ba2', '#6c63ff', '#00bcd4', '#ff9800', '#4caf50', '#e91e63', '#2196f3', '#00bfae', '#ff4081', '#b388ff', '#00e676', '#ff1744', '#ffd600'
-];
-
-function getRandom(min, max) {
-  return Math.random() * (max - min) + min;
-}
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -69,6 +59,22 @@ const Home = () => {
     }
   ];
 
+  // Partnership slides data
+  const partnershipSlides = [
+    {
+      title: "Strategic Partnership Announcement",
+      subtitle: "PMI IT & FutureCitiesCouncil Inc.",
+      description: "PMI IT is proud to announce the formation of a strategic technology alliance with FutureCitiesCouncil Inc., a premier Canadian technology firm established in 2019, renowned for its expertise in developing intelligent systems and advanced IT solutions.\n\nFutureCitiesCouncil Inc. has consistently delivered cutting-edge technology services across diverse industries in both Arab and Western markets, building deep expertise and a global outlook in addressing complex digital needs.\n\nThis partnership is designed to merge the capabilities and knowledge of both organizations to offer state-of-the-art services, including comprehensive system architecture and software development, enterprise-level digital transformation, high-level IT consulting, AI-powered solutions, and intelligent infrastructure customized for sectors like healthcare, education, and e-commerce.\n\nTogether, PMI IT and FutureCitiesCouncil Inc. aim to drive technological innovation, enhance operational performance, and contribute to building a smarter, more efficient digital future for clients across the globe.",
+      image: null // No image for this slide
+    },
+    {
+      title: "Partnership Agreement",
+      subtitle: "Official Partnership Documentation",
+      description: "Our strategic partnership agreement represents the formal commitment between PMI IT and FutureCitiesCouncil Inc. to collaborate on innovative technology solutions and deliver exceptional value to our clients worldwide.",
+      image: "/partnership-agreement.jpg" // Your agreement image
+    }
+  ];
+
   const nextSlide = useCallback(() => {
     setCurrentSlide(current => (current === slides.length - 1 ? 0 : current + 1));
   }, [slides.length]);
@@ -94,31 +100,36 @@ const Home = () => {
     <div className="home">
       {/* Floating Icons - Fixed Position */}
       <div className="floating-icons">
-        {Array.from({ length: 300 }).map((_, i) => {
-          const Icon = ICON_POOL[Math.floor(Math.random() * ICON_POOL.length)];
-          const color = ICON_COLORS[Math.floor(Math.random() * ICON_COLORS.length)];
-          const left = getRandom(0, 100); // percent
-          const top = getRandom(0, 100); // percent
-          const size = getRandom(1.1, 2.2); // rem
-          const delay = getRandom(0, 8); // seconds
-          const duration = getRandom(6, 14); // seconds
-          return (
-            <span
-              key={`floaticon-${i}`}
-              className="swim-icon swim-random"
-              style={{
-                left: `${left}%`,
-                top: `${top}%`,
-                color,
-                fontSize: `${size}rem`,
-                animationDelay: `${delay}s`,
-                animationDuration: `${duration}s`,
-              }}
-            >
-              <Icon />
-            </span>
-          );
-        })}
+        <div className="icon icon-1">🚀</div>
+        <div className="icon icon-2">💻</div>
+        <div className="icon icon-3">🌐</div>
+        <div className="icon icon-4">📱</div>
+        <div className="icon icon-5">⚡</div>
+        <div className="icon icon-6">🔧</div>
+        <div className="icon icon-7">📊</div>
+        <div className="icon icon-8">🎯</div>
+        <div className="icon icon-9">🌟</div>
+        <div className="icon icon-10">💡</div>
+        <div className="icon icon-11">🔒</div>
+        <div className="icon icon-12">📈</div>
+        <div className="icon icon-13">🛠️</div>
+        <div className="icon icon-14">🎨</div>
+        <div className="icon icon-15">🔍</div>
+        <div className="icon icon-16">📋</div>
+        <div className="icon icon-17">🎪</div>
+        <div className="icon icon-18">🔮</div>
+        <div className="icon icon-19">⚙️</div>
+        <div className="icon icon-20">🎭</div>
+        <div className="icon icon-21">🔬</div>
+        <div className="icon icon-22">🎪</div>
+        <div className="icon icon-23">🔧</div>
+        <div className="icon icon-24">📱</div>
+        <div className="icon icon-25">💻</div>
+        <div className="icon icon-26">🌐</div>
+        <div className="icon icon-27">🚀</div>
+        <div className="icon icon-28">⚡</div>
+        <div className="icon icon-29">📊</div>
+        <div className="icon icon-30">🎯</div>
       </div>
 
       {/* Hero Slider Section */}
@@ -134,6 +145,9 @@ const Home = () => {
             >
               {index === currentSlide && (
                 <div className="slide-content" key={currentSlide}>
+                  <div className="slide-logo">
+                    <img src="/logo.png" alt="PMI IT Logo" className="pmi-logo" />
+                  </div>
                   <h1 className="slide-title">{slide.title}</h1>
                   <h2 className="slide-subtitle">{slide.subtitle}</h2>
                   <p className="slide-description">{slide.description}</p>
@@ -171,48 +185,38 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Welcome Section */}
-      <section className="welcome-section">
-        <div className="container">
-          <div className="welcome-content">
-            <h2>Welcome to PMI IT</h2>
-            <div className="styled-welcome-text">
-              {/* Title */}
-              <span className="welcome-highlight">
-                Strategic Partnership between PMI IT and FutureCitiesCouncil Inc.
-              </span>
-              <div className="partnership-logos-row">
-                <img
-                  src="/logo.png"
-                  alt="PMI IT Logo"
-                  className="partnership-logo pmi-logo"
-                />
-                <img
-                  src="/futurecities-logo.png"
-                  alt="FutureCitiesCouncil Inc. Logo"
-                  className="partnership-logo futurecities-logo"
-                />
-              </div>
-              <p>
-                PMI IT is proud to announce the formation of a strategic technology alliance with{' '}
-                <strong className="welcome-company">FutureCitiesCouncil Inc.</strong>
-                , a premier Canadian technology firm established in 2019, renowned for its expertise in developing intelligent systems and advanced IT solutions.
-              </p>
-              <p>
-                <strong className="welcome-company">FutureCitiesCouncil Inc.</strong>
-                {' '}has consistently delivered cutting-edge technology services across diverse industries in both Arab and Western markets, building deep expertise and a global outlook in addressing complex digital needs.
-              </p>
-              <p>
-                This partnership is designed to merge the capabilities and knowledge of both organizations to offer state-of-the-art services, including comprehensive system architecture and software development, enterprise-level digital transformation, high-level IT consulting, AI-powered solutions, and intelligent infrastructure customized for sectors like healthcare, education, and e-commerce.
-              </p>
-              <p>
-                Together, <strong className="welcome-company">PMI IT</strong> and{' '}
-                <strong className="welcome-company">FutureCitiesCouncil Inc.</strong>
-                {' '}aim to drive technological innovation, enhance operational performance, and contribute to building a smarter, more efficient digital future for clients across the globe.
-              </p>
-            </div>
-            <FaRegWindowMaximize className="app-icon app-icon-right" />
+      {/* About Title with Logos */}
+      <div className="container" style={{ marginTop: '40px', marginBottom: '10px' }}>
+        <div className="about-logos-section">
+          <div className="about-logo about-logo-left">
+            <img src="/logo.png" alt="PMI IT Logo" className="about-logo-img" />
           </div>
+          <h2 className="section-title" style={{ textAlign: 'center', fontSize: '2.4rem', fontWeight: 700, margin: 0, color: '#667eea', letterSpacing: '1px' }}>About</h2>
+          <div className="about-logo about-logo-right">
+            <img src="/futurecities-logo.png" alt="FutureCitiesCouncil Logo" className="about-logo-img" />
+          </div>
+        </div>
+      </div>
+
+      {/* Partnership Slider Section */}
+      <section className="partnership-slider-section">
+        <div className="container">
+          <PartnershipSlider slides={[
+            {
+              title: null,
+              subtitle: null,
+              description: `<strong>PMI IT</strong> is proud to announce the formation of a strategic technology alliance with <strong>FutureCitiesCouncil Inc.</strong>, a premier Canadian technology firm established in 2019, renowned for its expertise in developing intelligent systems and advanced IT solutions.\n\n<strong>FutureCitiesCouncil Inc.</strong> has consistently delivered cutting-edge technology services across diverse industries in both Arab and Western markets, building deep expertise and a global outlook in addressing complex digital needs.\n\nThis partnership is designed to merge the capabilities and knowledge of both organizations to offer state-of-the-art services, including comprehensive system architecture and software development, enterprise-level digital transformation, high-level IT consulting, AI-powered solutions, and intelligent infrastructure customized for sectors like healthcare, education, and e-commerce.\n\nTogether, <strong>PMI IT</strong> and <strong>FutureCitiesCouncil Inc.</strong> aim to drive technological innovation, enhance operational performance, and contribute to building a smarter, more efficient digital future for clients across the globe.`,
+              image: null,
+              showLogos: true
+            },
+            {
+              title: null,
+              subtitle: null,
+              description: null,
+              image: "/partnership-agreement.jpg",
+              showLogos: false
+            }
+          ]} />
         </div>
       </section>
     </div>

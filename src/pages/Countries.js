@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import PageLoader from '../components/PageLoader';
+import { useImageLoading } from '../hooks/useLoadingState';
 import './Countries.css';
 
 const Countries = () => {
+  const [animatedNumbers, setAnimatedNumbers] = useState({
+    projects: 0,
+    countries: 0,
+    clients: 0
+  });
+
   const countries = [
     {
       name: 'Bahrain',
@@ -32,65 +40,72 @@ const Countries = () => {
       flag: 'https://flagcdn.com/w320/sa.png',
       capital: 'Riyadh',
       color: '#006C35'
+    },
+    {
+      name: 'France',
+      flag: 'https://flagcdn.com/w320/fr.png',
+      capital: 'Paris',
+      color: '#002395'
+    },
+    {
+      name: 'Tunisia',
+      flag: 'https://flagcdn.com/w320/tn.png',
+      capital: 'Tunis',
+      color: '#E70013'
     }
   ];
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [animatedNumbers, setAnimatedNumbers] = useState({
-    projects: 0,
-    countries: 0,
-    clients: 0
-  });
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev === countries.length - 1 ? 0 : prev + 1));
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
-
-  // Auto-slide every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [currentSlide]);
+  // Use the custom hook for image loading
+  const { isLoading, loadedCount, totalImages } = useImageLoading(
+    countries.map(country => country.flag)
+  );
 
   // Animate numbers
   useEffect(() => {
-    const animateNumbers = () => {
-      const targets = { projects: 100, countries: 7, clients: 500 };
-      const duration = 2000;
-      const steps = 60;
-      const stepDuration = duration / steps;
+    if (!isLoading) {
+      const animateNumbers = () => {
+        const targets = { projects: 100, countries: 7, clients: 500 };
+        const duration = 8000;
+        const steps = 120;
+        const stepDuration = duration / steps;
 
-      let currentStep = 0;
-      const timer = setInterval(() => {
-        currentStep++;
-        const progress = currentStep / steps;
-        
-        setAnimatedNumbers({
-          projects: Math.floor(targets.projects * progress),
-          countries: Math.floor(targets.countries * progress),
-          clients: Math.floor(targets.clients * progress)
-        });
+        let currentStep = 0;
+        const timer = setInterval(() => {
+          currentStep++;
+          const progress = currentStep / steps;
+          
+          setAnimatedNumbers({
+            projects: Math.floor(targets.projects * progress),
+            countries: Math.floor(targets.countries * progress),
+            clients: Math.floor(targets.clients * progress)
+          });
 
-        if (currentStep >= steps) {
-          clearInterval(timer);
-          setAnimatedNumbers(targets);
-        }
-      }, stepDuration);
+          if (currentStep >= steps) {
+            clearInterval(timer);
+            setAnimatedNumbers(targets);
+          }
+        }, stepDuration);
 
-      return () => clearInterval(timer);
-    };
+        return () => clearInterval(timer);
+      };
 
-    // Start animation after a delay
-    const timeout = setTimeout(animateNumbers, 500);
-    return () => clearTimeout(timeout);
-  }, []);
+      // Start animation after a delay
+      const timeout = setTimeout(animateNumbers, 500);
+      return () => clearTimeout(timeout);
+    }
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (
+      <div className="countries">
+        <PageLoader 
+          text={`Loading flags... (${loadedCount}/${totalImages})`}
+          size="large" 
+          variant="centered"
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="countries">
@@ -132,59 +147,30 @@ const Countries = () => {
         <div className="container">
           <div className="countries-title">
             <h1>Our Regional Presence</h1>
+            <p className="countries-subtitle">Serving clients across 7 countries in the Gulf region and beyond</p>
           </div>
-          <div className="countries-slider">
-            <div className="countries-slider-track" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-              {countries.map((country, index) => (
-                <div 
-                  key={index} 
-                  className="country-card slider-card"
-                  style={{ '--country-color': country.color }}
-                >
-                  <div className="country-flag">
-                    <img 
-                      src={country.flag} 
-                      alt={`${country.name} flag`} 
-                      className="flag-image"
-                    />
-                  </div>
-                  <div className="country-info">
-                    <h3>{country.name}</h3>
-                    <p className="country-capital">Capital: {country.capital}</p>
-                  </div>
-                  <div className="country-overlay">
-                    <div className="overlay-content">
-                      <h3>Ready to work with {country.name}?</h3>
-                      <p>Let's discuss your technology needs</p>
-                      <button 
-                        className="contact-btn"
-                        onClick={() => {
-                          const phoneNumber = '+1234567890';
-                          const message = `Hi! I'm interested in your services in ${country.name}. Can you provide more information?`;
-                          const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-                          window.open(whatsappUrl, '_blank');
-                        }}
-                      >
-                        Contact Us
-                      </button>
-                    </div>
-                  </div>
+          <div className="countries-grid">
+            {countries.map((country, index) => (
+              <div 
+                key={index} 
+                className="country-card"
+                style={{ '--country-color': country.color }}
+              >
+                <div className="country-flag">
+                  <img 
+                    src={country.flag} 
+                    alt={`${country.name} flag`} 
+                    className="flag-image"
+                  />
                 </div>
-              ))}
-            </div>
-          </div>
-          <div className="slider-dots">
-            {countries.map((_, idx) => (
-              <button
-                key={idx}
-                className={`slider-dot ${currentSlide === idx ? 'active' : ''}`}
-                onClick={() => goToSlide(idx)}
-                aria-label={`Go to country ${idx + 1}`}
-              />
+                <div className="country-info">
+                  <h3>{country.name}</h3>
+                </div>
+              </div>
             ))}
           </div>
           <div className="goals-dashboard">
-            <h2>Our 2025 Goals</h2>
+            <h2>Our Completed Projects</h2>
             <div className="timeline-container">
               <div className="timeline-line"></div>
               <div className="goals-timeline">
@@ -192,8 +178,8 @@ const Countries = () => {
                   <div className="goal-item">
                     <div className="goal-icon">🚀</div>
                     <div className="goal-number">{animatedNumbers.projects}+</div>
-                    <div className="goal-label">Projects Completed</div>
-                    <div className="goal-description">Expanding our portfolio across the Gulf region</div>
+                    <div className="goal-label">Projects Delivered</div>
+                    <div className="goal-description">Successfully completed innovative solutions across all regions</div>
                     <div className="timeline-dot"></div>
                   </div>
                 </div>
@@ -201,26 +187,26 @@ const Countries = () => {
                   <div className="goal-item">
                     <div className="goal-icon">🌍</div>
                     <div className="goal-number">{animatedNumbers.countries}</div>
-                    <div className="goal-label">Countries Served</div>
-                    <div className="goal-description">Extending our reach to Oman and Tunisia</div>
+                    <div className="goal-label">Countries Covered</div>
+                    <div className="goal-description">Successfully delivered projects in all 7 countries we serve</div>
                     <div className="timeline-dot"></div>
                   </div>
                 </div>
                 <div className="goal-column">
                   <div className="goal-item">
-                    <div className="goal-icon">💼</div>
+                    <div className="goal-icon">👥</div>
                     <div className="goal-number">{animatedNumbers.clients}+</div>
-                    <div className="goal-label">Happy Clients</div>
-                    <div className="goal-description">Building long-term partnerships</div>
+                    <div className="goal-label">Satisfied Clients</div>
+                    <div className="goal-description">Built lasting partnerships through successful project delivery</div>
                     <div className="timeline-dot"></div>
                   </div>
                 </div>
                 <div className="goal-column">
                   <div className="goal-item">
-                    <div className="goal-icon">⚡</div>
-                    <div className="goal-number">24/7</div>
-                    <div className="goal-label">Support Coverage</div>
-                    <div className="goal-description">Round-the-clock technical assistance</div>
+                    <div className="goal-icon">🎯</div>
+                    <div className="goal-number">100%</div>
+                    <div className="goal-label">Success Rate</div>
+                    <div className="goal-description">Maintained excellence in every project we delivered</div>
                     <div className="timeline-dot"></div>
                   </div>
                 </div>

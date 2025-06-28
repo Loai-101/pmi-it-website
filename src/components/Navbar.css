@@ -59,7 +59,70 @@
 
 .logo-text {
   font-family: 'Arial', sans-serif;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  font-size: 1.6rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 50%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 40px rgba(102, 126, 234, 0.6),
+    0 0 60px rgba(118, 75, 162, 0.4);
+  animation: logoGlow 3s ease-in-out infinite alternate;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.logo-text::before {
+  content: 'PMI IT';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0;
+  animation: logoPulse 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes logoGlow {
+  0% {
+    text-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(102, 126, 234, 0.6),
+      0 0 60px rgba(118, 75, 162, 0.4);
+  }
+  100% {
+    text-shadow: 
+      0 0 30px rgba(255, 255, 255, 1),
+      0 0 60px rgba(102, 126, 234, 0.8),
+      0 0 90px rgba(118, 75, 162, 0.6),
+      0 0 120px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.02);
+  }
+}
+
+.navbar-logo:hover .logo-text {
+  transform: scale(1.05);
+  text-shadow: 
+    0 0 40px rgba(255, 255, 255, 1),
+    0 0 80px rgba(102, 126, 234, 0.9),
+    0 0 120px rgba(118, 75, 162, 0.7),
+    0 0 160px rgba(255, 255, 255, 0.4);
 }
 
 .nav-menu {
@@ -202,38 +265,36 @@
     left: -100%;
     opacity: 1;
     transition: all 0.5s ease;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 20px 0;
-    overflow-y: auto;
+    background: linear-gradient(270deg, #667eea, #764ba2, #667eea);
+    background-size: 200% 200%;
+    animation: navbarGradientMove 6s ease-in-out infinite;
   }
 
   .nav-menu.active {
     left: 0;
-    opacity: 1;
-    transition: all 0.5s ease;
   }
 
   .nav-item {
-    margin: 15px 0;
-    width: 100%;
-    text-align: center;
+    margin: 10px 0;
   }
 
   .nav-link {
-    font-size: 1.1rem;
     padding: 15px 20px;
-    width: 90%;
-    margin: 0 auto;
-    display: block;
+    font-size: 1.1rem;
   }
 
   .navbar-logo {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
 
   .logo-img {
-    width: 32px;
-    height: 32px;
+    width: 35px;
+    height: 35px;
+  }
+
+  .logo-text {
+    font-size: 1.4rem;
+    letter-spacing: 1.5px;
   }
 
   .contact-icons {
@@ -241,9 +302,9 @@
   }
 
   .contact-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 0.9rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
   }
 }
 
@@ -262,18 +323,23 @@
   }
   
   .nav-link {
-    font-size: 1rem;
     padding: 12px 15px;
+    font-size: 1rem;
   }
   
   .navbar-logo {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
   
   .logo-img {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     margin-right: 8px;
+  }
+  
+  .logo-text {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
   }
   
   .contact-icons {
@@ -281,9 +347,9 @@
   }
   
   .contact-icon {
-    width: 28px;
-    height: 28px;
-    font-size: 0.8rem;
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
   }
   
   .menu-icon {
@@ -301,17 +367,19 @@
   }
   
   .contact-icon {
-    width: 26px;
-    height: 26px;
-    font-size: 0.7rem;
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
   }
   
   .logo-text {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.8px;
   }
   
   .logo-img {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
+    margin-right: 6px;
   }
 } 

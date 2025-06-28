@@ -1,0 +1,118 @@
+.page-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 200px;
+}
+
+.page-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(102, 126, 234, 0.2);
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  animation: pageSpin 1s linear infinite;
+  position: relative;
+}
+
+.page-spinner::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border: 2px solid transparent;
+  border-top: 2px solid rgba(118, 75, 162, 0.5);
+  border-radius: 50%;
+  animation: pageSpin 1.5s linear infinite reverse;
+}
+
+@keyframes pageSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.page-loader-text {
+  margin-left: 15px;
+  color: #667eea;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.page-loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.page-loader-small {
+  width: 30px;
+  height: 30px;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  border-top: 2px solid #667eea;
+  border-radius: 50%;
+  animation: pageSpin 1s linear infinite;
+}
+
+.page-loader-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-loader-inline .page-spinner {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.page-loader-inline .page-loader-text {
+  font-size: 0.9rem;
+  margin-left: 0;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .page-loader {
+    padding: 30px 15px;
+    min-height: 150px;
+  }
+  
+  .page-spinner {
+    width: 40px;
+    height: 40px;
+    border-width: 2.5px;
+  }
+  
+  .page-spinner::before {
+    border-width: 1.5px;
+  }
+  
+  .page-loader-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .page-loader {
+    padding: 20px 10px;
+    min-height: 120px;
+  }
+  
+  .page-spinner {
+    width: 35px;
+    height: 35px;
+    border-width: 2px;
+  }
+  
+  .page-spinner::before {
+    border-width: 1px;
+  }
+  
+  .page-loader-text {
+    font-size: 0.8rem;
+  }
+} 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes, FaProjectDiagram, FaEnvelope, FaWhatsapp, FaInstagram, FaPhone } from 'react-icons/fa';
+import { FaBars, FaTimes, FaProjectDiagram, FaEnvelope, FaWhatsapp, FaInstagram, FaPhone, FaUsers } from 'react-icons/fa';
 import { AiFillHome } from 'react-icons/ai';
 import { MdMiscellaneousServices } from 'react-icons/md';
 import { GiFlyingFlag } from 'react-icons/gi';
@@ -84,6 +84,15 @@ const Navbar = () => {
               onClick={closeMenu}
             >
               <GiFlyingFlag className="nav-icon" /> Countries
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link 
+              to="/teams" 
+              className={location.pathname === '/teams' ? 'nav-link active' : 'nav-link'}
+              onClick={closeMenu}
+            >
+              <FaUsers className="nav-icon" /> Teams
             </Link>
           </li>
         </ul>
