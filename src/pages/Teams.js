@@ -10,53 +10,53 @@ const Teams = () => {
   const teamMembers = [
     {
       id: 1,
-      name: 'Ahmed Al-Mansouri',
-      position: 'CEO & Founder',
-      department: 'Leadership',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
-      bio: 'Visionary leader with 15+ years of experience in technology and business development.',
-      skills: ['Strategic Planning', 'Business Development', 'Technology Leadership'],
-      experience: '15+ Years'
+      name: 'Loai Aldaher',
+      position: 'Head of IT – PMI',
+      department: 'LEADERSHIP',
+      image: '/team/team1.jpg',
+      bio: 'Visionary IT leader with over 5 years of experience in software development, system architecture, and digital transformation. Specialized in building scalable solutions, leading cross-functional teams, and integrating smart technologies tailored to business goals.',
+      skills: ['Full-Stack Development', 'System Integration', 'Smart Solutions & Automation', 'Team Leadership', 'Business-Driven IT Strategy'],
+      experience: '5+ Years'
     },
     {
       id: 2,
-      name: 'Mohammed Al-Rashid',
-      position: 'Lead Developer',
-      department: 'Development',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
-      bio: 'Full-stack developer with expertise in modern web technologies and mobile development.',
-      skills: ['React', 'Node.js', 'Flutter', 'Python'],
-      experience: '8+ Years'
+      name: 'Dr. Chouache Sofiene',
+      position: 'Project Director & Business Analyst',
+      department: 'PROJECT & STRATEGIC LEADERSHIP',
+      image: '/team/team2.jpg',
+      bio: 'Strategic project leader with over 20 years of experience in project & program management, enterprise architecture, and business consulting. Expert in aligning business goals with smart system designs and ensuring quality delivery across multidisciplinary teams.',
+      skills: ['Project & Program Management', 'Business Analysis & Consulting', 'Enterprise Architecture & Systems Design', 'Quality & Delivery Assurance', 'Team Leadership & Communication'],
+      experience: '20+ Years'
     },
     {
       id: 3,
-      name: 'Fatima Al-Zahra',
-      position: 'UI/UX Designer',
-      department: 'Design',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
-      bio: 'Creative designer focused on user experience and modern interface design.',
-      skills: ['UI/UX Design', 'Figma', 'Adobe Creative Suite', 'Prototyping'],
-      experience: '6+ Years'
-    },
-    {
-      id: 4,
-      name: 'David Chen',
-      position: 'DevOps Engineer',
-      department: 'Technology',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face',
-      bio: 'DevOps specialist ensuring smooth deployment and infrastructure management.',
-      skills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD'],
+      name: 'Bayrem Frej',
+      position: 'Tech Lead',
+      department: 'TECHNICAL LEADERSHIP',
+      image: '/team/team3.jpg',
+      bio: 'Experienced Tech Lead with over 7 years of expertise in designing and supervising modern software architectures (microservices, cloud), enforcing clean code principles, and mentoring development teams. Skilled at bridging business and technical needs, driving agile practices, and ensuring delivery quality across complex environments.',
+      skills: ['Software Architecture (Microservices, Cloud)', 'Team Leadership & Mentoring', 'Agile & DevOps Coordination', 'Business-Technical Alignment', 'Code Quality & Clean Coding Standards'],
       experience: '7+ Years'
     },
     {
+      id: 4,
+      name: 'Ghada Hleli ',
+      position: 'Odoo Developer',
+      department: 'DEVELOPMENT',
+      image: '/team/team4.jpg',
+      bio: 'Experienced Odoo developer with comprehensive expertise in backend and frontend development, system integration, and DevOps. Specialized in building custom modules and solutions across various business domains including Sales, Purchase, Inventory, Accounting, HR, CRM, and eCommerce.',
+      skills: ['Backend Development (Python & Odoo ORM)', 'Frontend Development (XML & QWeb)', 'Web and API Integration', 'DevOps / System Administration', 'Odoo Studio', 'Agile / Scrum Methodology'],
+      experience: '5+ Years'
+    },
+    {
       id: 5,
-      name: 'Aisha Al-Sabah',
-      position: 'Project Manager',
-      department: 'Management',
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face',
-      bio: 'Experienced project manager delivering successful projects on time and budget.',
-      skills: ['Project Management', 'Agile', 'Scrum', 'Risk Management'],
-      experience: '9+ Years'
+      name: 'Ahlen Raissi',
+      position: 'Odoo Developer',
+      department: 'ODOO DEVELOPMENT',
+      image: '/team/team5.jpg',
+      bio: 'Experienced Odoo developer with 5+ years of expertise in backend (Python & Odoo ORM) and frontend (XML & QWeb) development. Proven track record in delivering tailored Odoo solutions for maritime shipping, healthcare ERP, eCommerce, and website platforms.',
+      skills: ['Backend: Python & Odoo ORM', 'Frontend: XML & QWeb', 'Web & API Integration', 'DevOps & System Administration', 'Agile Collaboration & Problem Solving'],
+      experience: '5+ Years'
     },
     {
       id: 6,

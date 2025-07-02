@@ -67,58 +67,84 @@
 }
 
 .country-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 50%;
-  padding: 15px;
+  background: transparent;
+  border-radius: 0;
+  padding: 10px;
   text-align: center;
-  color: white;
+  color: #333;
   position: relative;
-  overflow: hidden;
-  box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+  overflow: visible;
+  box-shadow: none;
   transition: all 0.3s ease;
-  min-width: 120px;
-  max-width: 120px;
-  min-height: 120px;
-  max-height: 120px;
+  min-width: 80px;
+  max-width: 80px;
+  min-height: 60px;
+  max-height: 60px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  aspect-ratio: 1;
+  border: none;
+  animation: fadeInUp 0.6s ease-out both;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.country-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .country-card:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 25px 50px rgba(102, 126, 234, 0.4);
+  transform: translateY(-5px);
+  box-shadow: none;
+  border-color: transparent;
 }
 
 .country-flag {
-  margin-bottom: 6px;
+  margin-bottom: 0;
 }
 
 .flag-image {
-  width: 45px;
-  height: 45px;
+  width: 60px;
+  height: 42px;
   object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  background: white;
+  margin-bottom: 0;
 }
 
 .flag-image:hover {
   transform: scale(1.1);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.country-info {
+  display: none;
 }
 
 .country-info h3 {
-  font-size: 0.85rem;
-  margin-bottom: 2px;
+  font-size: 1rem;
+  margin-bottom: 4px;
   font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  line-height: 1.1;
+  color: #333;
+  line-height: 1.2;
 }
 
 .country-capital {
@@ -395,20 +421,31 @@
   }
   
   .country-card {
-    min-width: 100px;
-    max-width: 100px;
-    min-height: 100px;
-    max-height: 100px;
+    min-width: 120px;
+    max-width: 120px;
+    min-height: 120px;
+    max-height: 120px;
     padding: 12px;
   }
   
   .flag-image {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background: white;
+    margin-bottom: 0;
   }
   
   .country-info h3 {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.2;
   }
   
   .country-capital {
@@ -475,20 +512,31 @@
   }
   
   .country-card {
-    min-width: 85px;
-    max-width: 85px;
-    min-height: 85px;
-    max-height: 85px;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    max-height: 100px;
     padding: 10px;
   }
   
   .flag-image {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 31px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background: white;
+    margin-bottom: 0;
   }
   
   .country-info h3 {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.2;
   }
   
   .country-capital {
@@ -542,6 +590,12 @@
   .flag-image {
     width: 30px;
     height: 30px;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    background: white;
   }
   
   .country-info h3 {

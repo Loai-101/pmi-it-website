@@ -42,7 +42,7 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
           <img src="/logo.png" alt="PMI IT Logo" className="logo-img" />
-          <span className="logo-text">PMI IT</span>
+          <span className="logo-text">IT Solution</span>
         </Link>
         
         <div className="menu-icon" onClick={toggleMenu}>

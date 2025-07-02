@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Services from './pages/Services';
@@ -11,7 +11,8 @@ import LoadingSpinner from './components/LoadingSpinner';
 import { usePageLoading } from './hooks/useLoadingState';
 import './App.css';
 
-function App() {
+function AppContent() {
+  const location = useLocation();
   const { isLoading } = usePageLoading();
   const [showContent, setShowContent] = useState(false);
 
@@ -30,30 +31,39 @@ function App() {
     setShowContent(true);
   };
 
+  // Check if current route is projects page
+  const isProjectsPage = location.pathname === '/projects';
+
+  return (
+    <div className="App">
+      {!showContent && (
+        <LoadingSpinner 
+          isLoading={isLoading} 
+          onLoadingComplete={handleLoadingComplete}
+        />
+      )}
+      
+      {showContent && (
+        <>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/countries" element={<Countries />} />
+            <Route path="/teams" element={<Teams />} />
+          </Routes>
+          {!isProjectsPage && <Footer />}
+        </>
+      )}
+    </div>
+  );
+}
+
+function App() {
   return (
     <Router>
-      <div className="App">
-        {!showContent && (
-          <LoadingSpinner 
-            isLoading={isLoading} 
-            onLoadingComplete={handleLoadingComplete}
-          />
-        )}
-        
-        {showContent && (
-          <>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/countries" element={<Countries />} />
-              <Route path="/teams" element={<Teams />} />
-            </Routes>
-            <Footer />
-          </>
-        )}
-      </div>
+      <AppContent />
     </Router>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import PartnershipSlider from '../components/PartnershipSlider';
 import './Home.css';
 
 const Home = () => {
@@ -198,25 +197,23 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Partnership Slider Section */}
-      <section className="partnership-slider-section">
+      {/* About Content Section */}
+      <section className="about-content-section">
         <div className="container">
-          <PartnershipSlider slides={[
-            {
-              title: null,
-              subtitle: null,
-              description: `<strong>PMI IT</strong> is proud to announce the formation of a strategic technology alliance with <strong>FutureCitiesCouncil Inc.</strong>, a premier Canadian technology firm established in 2019, renowned for its expertise in developing intelligent systems and advanced IT solutions.\n\n<strong>FutureCitiesCouncil Inc.</strong> has consistently delivered cutting-edge technology services across diverse industries in both Arab and Western markets, building deep expertise and a global outlook in addressing complex digital needs.\n\nThis partnership is designed to merge the capabilities and knowledge of both organizations to offer state-of-the-art services, including comprehensive system architecture and software development, enterprise-level digital transformation, high-level IT consulting, AI-powered solutions, and intelligent infrastructure customized for sectors like healthcare, education, and e-commerce.\n\nTogether, <strong>PMI IT</strong> and <strong>FutureCitiesCouncil Inc.</strong> aim to drive technological innovation, enhance operational performance, and contribute to building a smarter, more efficient digital future for clients across the globe.`,
-              image: null,
-              showLogos: true
-            },
-            {
-              title: null,
-              subtitle: null,
-              description: null,
-              image: "/partnership-agreement.jpg",
-              showLogos: false
-            }
-          ]} />
+          <div className="about-content">
+            <p>
+              <strong>PMI IT</strong> is proud to announce the formation of a strategic technology alliance with <strong>FutureCitiesCouncil Inc.</strong>, a premier Canadian technology firm established in 2019, renowned for its expertise in developing intelligent systems and advanced IT solutions.
+            </p>
+            <p>
+              <strong>FutureCitiesCouncil Inc.</strong> has consistently delivered cutting-edge technology services across diverse industries in both Arab and Western markets, building deep expertise and a global outlook in addressing complex digital needs.
+            </p>
+            <p>
+              This partnership is designed to merge the capabilities and knowledge of both organizations to offer state-of-the-art services, including comprehensive system architecture and software development, enterprise-level digital transformation, high-level IT consulting, AI-powered solutions, and intelligent infrastructure customized for sectors like healthcare, education, and e-commerce.
+            </p>
+            <p>
+              Together, <strong>PMI IT</strong> and <strong>FutureCitiesCouncil Inc.</strong> aim to drive technological innovation, enhance operational performance, and contribute to building a smarter, more efficient digital future for clients across the globe.
+            </p>
+          </div>
         </div>
       </section>
     </div>

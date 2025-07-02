@@ -937,4 +937,33 @@
   .section-title {
     font-size: 1.8rem;
   }
+}
+
+/* About Content Section */
+.about-content-section {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+.about-content p:last-child {
+  margin-bottom: 0;
+}
+
+.about-content strong {
+  color: #667eea;
+  font-weight: 700;
 } 

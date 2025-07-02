@@ -9,16 +9,11 @@ const Countries = () => {
     countries: 0,
     clients: 0
   });
+  const [animatedCards, setAnimatedCards] = useState([]);
 
   const countries = [
     {
-      name: 'Bahrain',
-      flag: 'https://flagcdn.com/w320/bh.png',
-      capital: 'Manama',
-      color: '#CE1126'
-    },
-    {
-      name: 'United Arab Emirates',
+      name: 'UAE',
       flag: 'https://flagcdn.com/w320/ae.png',
       capital: 'Abu Dhabi',
       color: '#00732F'
@@ -42,6 +37,12 @@ const Countries = () => {
       color: '#006C35'
     },
     {
+      name: 'Bahrain',
+      flag: 'https://flagcdn.com/w320/bh.png',
+      capital: 'Manama',
+      color: '#CE1126'
+    },
+    {
       name: 'France',
       flag: 'https://flagcdn.com/w320/fr.png',
       capital: 'Paris',
@@ -59,6 +60,23 @@ const Countries = () => {
   const { isLoading, loadedCount, totalImages } = useImageLoading(
     countries.map(country => country.flag)
   );
+
+  // Animate country cards one by one
+  useEffect(() => {
+    if (!isLoading) {
+      const animateCards = () => {
+        countries.forEach((_, index) => {
+          setTimeout(() => {
+            setAnimatedCards(prev => [...prev, index]);
+          }, index * 300); // 300ms delay between each card
+        });
+      };
+
+      // Start card animations after a short delay
+      const timeout = setTimeout(animateCards, 500);
+      return () => clearTimeout(timeout);
+    }
+  }, [isLoading, countries.length]);
 
   // Animate numbers
   useEffect(() => {
@@ -153,8 +171,11 @@ const Countries = () => {
             {countries.map((country, index) => (
               <div 
                 key={index} 
-                className="country-card"
-                style={{ '--country-color': country.color }}
+                className={`country-card ${animatedCards.includes(index) ? 'animate' : ''}`}
+                style={{ 
+                  '--country-color': country.color,
+                  animationDelay: `${index * 0.3}s`
+                }}
               >
                 <div className="country-flag">
                   <img 
