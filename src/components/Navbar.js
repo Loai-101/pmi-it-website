@@ -41,7 +41,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          <img src="https://i.postimg.cc/KYwrqTjD/pmi-it-logo.png" alt="PMI IT Logo" className="logo-img" />
+          <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/pmi-it-logo.png" alt="PMI IT Logo" className="logo-img" />
           <span className="logo-text">IT Solution</span>
         </Link>
         

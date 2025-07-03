@@ -221,43 +221,43 @@ const Projects = () => {
             </div>
             <div className="company-logos-grid" ref={logosGridRef}>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/mZVxDnf0/Company1.png" alt="Company 1" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company1.png" alt="Company 1" />
               </div>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/pdyQfppf/Company2.jpg" alt="Company 2" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company2.jpg" alt="Company 2" />
               </div>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/SKm3kL1y/Company3.png" alt="Company 3" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company3.png" alt="Company 3" />
               </div>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/LXKTmm8j/Company4.png" alt="Company 4" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company4.png" alt="Company 4" />
               </div>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/8PJjmMHP/Company5.jpg" alt="Company 5" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company5.jpg" alt="Company 5" />
               </div>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/HLsJ5KvF/Company6.png" alt="Company 6" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company6.png" alt="Company 6" />
               </div>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/cJYzR9KM/Company7.png" alt="Company 7" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company7.png" alt="Company 7" />
               </div>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/4dWQVV1Q/Company8.png" alt="Company 8" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company8.png" alt="Company 8" />
               </div>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/g2fzc7Fv/Company9.jpg" alt="Company 9" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company9.jpg" alt="Company 9" />
               </div>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/JhGpxTGd/Company10.jpg" alt="Company 10" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company10.jpg" alt="Company 10" />
               </div>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/3xK8kGdw/Company11.jpg" alt="Company 11" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company11.jpg" alt="Company 11" />
               </div>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/qRByQqbB/Company12.jpg" alt="Company 12" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company12.jpg" alt="Company 12" />
               </div>
               <div className="company-logo">
-                <img src="https://i.postimg.cc/kg1VNC6K/Company13.png" alt="Company 13" />
+                <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/Company13.png" alt="Company 13" />
               </div>
             </div>
           </div>
