@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaBuilding, FaShip, FaHospital, FaIndustry, FaShoppingCart, FaRoad, FaIndustry as FaIndustry2, FaCar, FaCogs, FaDatabase, FaGlobe, FaUsers, FaChartLine } from 'react-icons/fa';
 import { SiJavascript, SiPython, SiReact, SiAngular, SiPostgresql, SiJava, SiOracle, SiKafka, SiFlutter } from 'react-icons/si';
+import { IMAGES } from '../utils/imagePaths';
 import './Projects.css';
 
 const Projects = () => {
@@ -220,43 +221,43 @@ const Projects = () => {
             </div>
             <div className="company-logos-grid" ref={logosGridRef}>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company1.jpg"} alt="Company 1" />
+                <img src={IMAGES.COMPANY_1} alt="Company 1" />
               </div>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company2.jpg"} alt="Company 2" />
+                <img src={IMAGES.COMPANY_2} alt="Company 2" />
               </div>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company3.jpg"} alt="Company 3" />
+                <img src={IMAGES.COMPANY_3} alt="Company 3" />
               </div>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company4.jpg"} alt="Company 4" />
+                <img src={IMAGES.COMPANY_4} alt="Company 4" />
               </div>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company5.jpg"} alt="Company 5" />
+                <img src={IMAGES.COMPANY_5} alt="Company 5" />
               </div>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company6.jpg"} alt="Company 6" />
+                <img src={IMAGES.COMPANY_6} alt="Company 6" />
               </div>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company7.jpg"} alt="Company 7" />
+                <img src={IMAGES.COMPANY_7} alt="Company 7" />
               </div>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company8.jpg"} alt="Company 8" />
+                <img src={IMAGES.COMPANY_8} alt="Company 8" />
               </div>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company9.jpg"} alt="Company 9" />
+                <img src={IMAGES.COMPANY_9} alt="Company 9" />
               </div>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company10.jpg"} alt="Company 10" />
+                <img src={IMAGES.COMPANY_10} alt="Company 10" />
               </div>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company11.jpg"} alt="Company 11" />
+                <img src={IMAGES.COMPANY_11} alt="Company 11" />
               </div>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company12.jpg"} alt="Company 12" />
+                <img src={IMAGES.COMPANY_12} alt="Company 12" />
               </div>
               <div className="company-logo">
-                <img src={process.env.PUBLIC_URL + "/logos/Company13.jpg"} alt="Company 13" />
+                <img src={IMAGES.COMPANY_13} alt="Company 13" />
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PageLoader from '../components/PageLoader';
 import { useImageLoading } from '../hooks/useLoadingState';
+import { IMAGES } from '../utils/imagePaths';
 import './Teams.css';
 
 const Teams = () => {
@@ -13,7 +14,7 @@ const Teams = () => {
       name: 'Loai Aldaher',
       position: 'Head of IT – PMI',
       department: 'LEADERSHIP',
-      image: process.env.PUBLIC_URL + '/team/team1.jpg',
+      image: IMAGES.TEAM_1,
       bio: 'Visionary IT leader with over 5 years of experience in software development, system architecture, and digital transformation. Specialized in building scalable solutions, leading cross-functional teams, and integrating smart technologies tailored to business goals.',
       skills: ['Full-Stack Development', 'System Integration', 'Smart Solutions & Automation', 'Team Leadership', 'Business-Driven IT Strategy'],
       experience: '5+ Years'
@@ -23,7 +24,7 @@ const Teams = () => {
       name: 'Dr. Chouache Sofiene',
       position: 'Project Director & Business Analyst',
       department: 'PROJECT & STRATEGIC LEADERSHIP',
-      image: process.env.PUBLIC_URL + '/team/team2.jpg',
+      image: IMAGES.TEAM_2,
       bio: 'Strategic project leader with over 20 years of experience in project & program management, enterprise architecture, and business consulting. Expert in aligning business goals with smart system designs and ensuring quality delivery across multidisciplinary teams.',
       skills: ['Project & Program Management', 'Business Analysis & Consulting', 'Enterprise Architecture & Systems Design', 'Quality & Delivery Assurance', 'Team Leadership & Communication'],
       experience: '20+ Years'
@@ -33,7 +34,7 @@ const Teams = () => {
       name: 'Bayrem Frej',
       position: 'Tech Lead',
       department: 'TECHNICAL LEADERSHIP',
-      image: process.env.PUBLIC_URL + '/team/team3.jpg',
+      image: IMAGES.TEAM_3,
       bio: 'Experienced Tech Lead with over 7 years of expertise in designing and supervising modern software architectures (microservices, cloud), enforcing clean code principles, and mentoring development teams. Skilled at bridging business and technical needs, driving agile practices, and ensuring delivery quality across complex environments.',
       skills: ['Software Architecture (Microservices, Cloud)', 'Team Leadership & Mentoring', 'Agile & DevOps Coordination', 'Business-Technical Alignment', 'Code Quality & Clean Coding Standards'],
       experience: '7+ Years'
@@ -43,7 +44,7 @@ const Teams = () => {
       name: 'Ghada Hleli ',
       position: 'Odoo Developer',
       department: 'DEVELOPMENT',
-      image: process.env.PUBLIC_URL + '/team/team4.jpg',
+      image: IMAGES.TEAM_4,
       bio: 'Experienced Odoo developer with comprehensive expertise in backend and frontend development, system integration, and DevOps. Specialized in building custom modules and solutions across various business domains including Sales, Purchase, Inventory, Accounting, HR, CRM, and eCommerce.',
       skills: ['Backend Development (Python & Odoo ORM)', 'Frontend Development (XML & QWeb)', 'Web and API Integration', 'DevOps / System Administration', 'Odoo Studio', 'Agile / Scrum Methodology'],
       experience: '5+ Years'
@@ -53,7 +54,7 @@ const Teams = () => {
       name: 'Ahlen Raissi',
       position: 'Odoo Developer',
       department: 'ODOO DEVELOPMENT',
-      image: process.env.PUBLIC_URL + '/team/team5.jpg',
+      image: IMAGES.TEAM_5,
       bio: 'Experienced Odoo developer with 5+ years of expertise in backend (Python & Odoo ORM) and frontend (XML & QWeb) development. Proven track record in delivering tailored Odoo solutions for maritime shipping, healthcare ERP, eCommerce, and website platforms.',
       skills: ['Backend: Python & Odoo ORM', 'Frontend: XML & QWeb', 'Web & API Integration', 'DevOps & System Administration', 'Agile Collaboration & Problem Solving'],
       experience: '5+ Years'
