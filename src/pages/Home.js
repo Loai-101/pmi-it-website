@@ -9,49 +9,49 @@ const Home = () => {
   const slides = [
     {
       id: 1,
-      image: '/sliders/slider1.jpg',
+      image: 'sliders/slider1.jpg',
       title: 'We Build Systems. You Build Success.',
       subtitle: 'From custom software to complete ERP platforms.',
       description: 'We deliver comprehensive software solutions that drive your business success and operational excellence.'
     },
     {
       id: 2,
-      image: '/sliders/slider2.jpg',
+      image: 'sliders/slider2.jpg',
       title: 'Custom Software in Every Language, for Every Business.',
       subtitle: 'Node, Python, PHP, Java, Flutter — we code your way.',
       description: 'Expert development in multiple programming languages to create solutions that perfectly fit your business needs.'
     },
     {
       id: 3,
-      image: '/sliders/slider3.jpg',
+      image: 'sliders/slider3.jpg',
       title: 'Odoo Experts. Customized to Fit Your Business.',
       subtitle: 'Tailored ERP systems that grow with you.',
       description: 'Specialized Odoo implementation and customization services designed to scale with your business growth.'
     },
     {
       id: 4,
-      image: '/sliders/slider4.jpg',
+      image: 'sliders/slider4.jpg',
       title: 'Mobile App Development That Moves With You.',
       subtitle: 'iOS, Android & cross-platform apps — fast, scalable, secure.',
       description: 'Native and cross-platform mobile applications that keep pace with your business and user needs.'
     },
     {
       id: 5,
-      image: '/sliders/slider5.jpg',
+      image: 'sliders/slider5.jpg',
       title: 'From Idea to Execution — We Build Your Vision.',
       subtitle: 'End-to-end development for modern enterprises.',
       description: 'Complete development lifecycle from concept to deployment, turning your ideas into powerful business solutions.'
     },
     {
       id: 6,
-      image: '/sliders/slider6.jpg',
+      image: 'sliders/slider6.jpg',
       title: 'Digital Solutions Without Limits.',
       subtitle: 'Web, mobile, desktop, ERP — all under one roof.',
       description: 'Comprehensive digital solutions across all platforms and technologies, all delivered by one trusted partner.'
     },
     {
       id: 7,
-      image: '/sliders/slider7.jpg',
+      image: 'sliders/slider7.jpg',
       title: 'PMI IT: Your Technology Partner in Innovation.',
       subtitle: 'Reliable systems. Smarter operations.',
       description: 'Your trusted technology partner delivering innovative solutions that make your operations smarter and more efficient.'
@@ -70,7 +70,7 @@ const Home = () => {
       title: "Partnership Agreement",
       subtitle: "Official Partnership Documentation",
       description: "Our strategic partnership agreement represents the formal commitment between PMI IT and FutureCitiesCouncil Inc. to collaborate on innovative technology solutions and deliver exceptional value to our clients worldwide.",
-      image: "/partnership-agreement.jpg" // Your agreement image
+      image: "partnership-agreement.jpg" // Your agreement image
     }
   ];
 
@@ -145,7 +145,7 @@ const Home = () => {
               {index === currentSlide && (
                 <div className="slide-content" key={currentSlide}>
                   <div className="slide-logo">
-                    <img src="/logo/logo.png" alt="PMI IT Logo" className="pmi-logo" />
+                    <img src="logo/logo.png" alt="PMI IT Logo" className="pmi-logo" />
                   </div>
                   <h1 className="slide-title">{slide.title}</h1>
                   <h2 className="slide-subtitle">{slide.subtitle}</h2>
@@ -188,11 +188,11 @@ const Home = () => {
       <div className="container" style={{ marginTop: '40px', marginBottom: '10px' }}>
         <div className="about-logos-section">
           <div className="about-logo about-logo-left">
-            <img src="/logo/logo.png" alt="PMI IT Logo" className="about-logo-img" />
+            <img src="logo/logo.png" alt="PMI IT Logo" className="about-logo-img" />
           </div>
           <h2 className="section-title" style={{ textAlign: 'center', fontSize: '2.4rem', fontWeight: 700, margin: 0, color: '#667eea', letterSpacing: '1px' }}>About</h2>
           <div className="about-logo about-logo-right">
-            <img src="/logo/futurecities-logo.png" alt="FutureCitiesCouncil Logo" className="about-logo-img" />
+            <img src="logo/futurecities-logo.png" alt="FutureCitiesCouncil Logo" className="about-logo-img" />
           </div>
         </div>
       </div>
