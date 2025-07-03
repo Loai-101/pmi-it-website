@@ -82,7 +82,7 @@ const Countries = () => {
   useEffect(() => {
     if (!isLoading) {
       const animateNumbers = () => {
-        const targets = { projects: 100, countries: 7, clients: 500 };
+        const targets = { projects: 40, countries: 7, clients: 150 };
         const duration = 8000;
         const steps = 120;
         const stepDuration = duration / steps;
@@ -225,7 +225,7 @@ const Countries = () => {
                 <div className="goal-column">
                   <div className="goal-item">
                     <div className="goal-icon">🎯</div>
-                    <div className="goal-number">100%</div>
+                    <div className="goal-number">98%</div>
                     <div className="goal-label">Success Rate</div>
                     <div className="goal-description">Maintained excellence in every project we delivered</div>
                     <div className="timeline-dot"></div>

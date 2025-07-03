@@ -221,43 +221,43 @@ const Projects = () => {
             </div>
             <div className="company-logos-grid" ref={logosGridRef}>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_1} alt="Company 1" />
+                <img src="https://i.postimg.cc/mZVxDnf0/Company1.png" alt="Company 1" />
               </div>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_2} alt="Company 2" />
+                <img src="https://i.postimg.cc/pdyQfppf/Company2.jpg" alt="Company 2" />
               </div>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_3} alt="Company 3" />
+                <img src="https://i.postimg.cc/SKm3kL1y/Company3.png" alt="Company 3" />
               </div>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_4} alt="Company 4" />
+                <img src="https://i.postimg.cc/LXKTmm8j/Company4.png" alt="Company 4" />
               </div>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_5} alt="Company 5" />
+                <img src="https://i.postimg.cc/8PJjmMHP/Company5.jpg" alt="Company 5" />
               </div>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_6} alt="Company 6" />
+                <img src="https://i.postimg.cc/HLsJ5KvF/Company6.png" alt="Company 6" />
               </div>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_7} alt="Company 7" />
+                <img src="https://i.postimg.cc/cJYzR9KM/Company7.png" alt="Company 7" />
               </div>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_8} alt="Company 8" />
+                <img src="https://i.postimg.cc/4dWQVV1Q/Company8.png" alt="Company 8" />
               </div>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_9} alt="Company 9" />
+                <img src="https://i.postimg.cc/g2fzc7Fv/Company9.jpg" alt="Company 9" />
               </div>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_10} alt="Company 10" />
+                <img src="https://i.postimg.cc/JhGpxTGd/Company10.jpg" alt="Company 10" />
               </div>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_11} alt="Company 11" />
+                <img src="https://i.postimg.cc/3xK8kGdw/Company11.jpg" alt="Company 11" />
               </div>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_12} alt="Company 12" />
+                <img src="https://i.postimg.cc/qRByQqbB/Company12.jpg" alt="Company 12" />
               </div>
               <div className="company-logo">
-                <img src={IMAGES.COMPANY_13} alt="Company 13" />
+                <img src="https://i.postimg.cc/kg1VNC6K/Company13.png" alt="Company 13" />
               </div>
             </div>
           </div>

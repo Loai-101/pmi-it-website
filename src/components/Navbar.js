@@ -4,7 +4,6 @@ import { FaBars, FaTimes, FaProjectDiagram, FaEnvelope, FaWhatsapp, FaInstagram,
 import { AiFillHome } from 'react-icons/ai';
 import { MdMiscellaneousServices } from 'react-icons/md';
 import { GiFlyingFlag } from 'react-icons/gi';
-import { IMAGES } from '../utils/imagePaths';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -42,7 +41,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          <img src={IMAGES.PMI_LOGO} alt="PMI IT Logo" className="logo-img" />
+          <img src="https://i.postimg.cc/KYwrqTjD/pmi-it-logo.png" alt="PMI IT Logo" className="logo-img" />
           <span className="logo-text">IT Solution</span>
         </Link>
         
