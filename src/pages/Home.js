@@ -146,7 +146,7 @@ const Home = () => {
               {index === currentSlide && (
                 <div className="slide-content" key={currentSlide}>
                   <div className="slide-logo">
-                    <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/pmi-it-logo.png" alt="PMI IT Logo" className="pmi-logo" />
+                    <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" alt="PMI IT Logo" className="pmi-logo" />
                   </div>
                   <h1 className="slide-title">{slide.title}</h1>
                   <h2 className="slide-subtitle">{slide.subtitle}</h2>
@@ -189,11 +189,11 @@ const Home = () => {
       <div className="container" style={{ marginTop: '40px', marginBottom: '10px' }}>
         <div className="about-logos-section">
           <div className="about-logo about-logo-left">
-            <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/pmi-it-logo.png" alt="PMI IT Logo" className="about-logo-img" />
+            <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" alt="PMI IT Logo" className="about-logo-img" />
           </div>
           <h2 className="section-title" style={{ textAlign: 'center', fontSize: '2.4rem', fontWeight: 700, margin: 0, color: '#667eea', letterSpacing: '1px' }}>About</h2>
           <div className="about-logo about-logo-right">
-            <img src="https://res.cloudinary.com/demo/image/upload/v1680000000/futurecities-logo.jpg" alt="FutureCitiesCouncil Logo" className="about-logo-img" />
+            <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551231/futurecities-logo_qgotzj.jpg" alt="FutureCitiesCouncil Logo" className="about-logo-img" />
           </div>
         </div>
       </div>
