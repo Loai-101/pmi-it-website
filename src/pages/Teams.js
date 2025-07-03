@@ -58,17 +58,19 @@ const Teams = () => {
       skills: ['Backend: Python & Odoo ORM', 'Frontend: XML & QWeb', 'Web & API Integration', 'DevOps & System Administration', 'Agile Collaboration & Problem Solving'],
       experience: '5+ Years'
     },
-    {
-      id: 6,
-      name: 'James Wilson',
-      position: 'Business Analyst',
-      department: 'Business',
-      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face',
-      bio: 'Business analyst bridging the gap between business needs and technical solutions.',
-      skills: ['Business Analysis', 'Requirements Gathering', 'Process Improvement'],
-      experience: '5+ Years'
-    }
+  
+
   ];
+
+  // Calculate combined experience
+  const calculateCombinedExperience = () => {
+    return teamMembers.reduce((total, member) => {
+      const years = parseInt(member.experience);
+      return total + years;
+    }, 0);
+  };
+
+  const combinedExperience = calculateCombinedExperience();
 
   // Use the custom hook for image loading
   const { isLoading, loadedCount, totalImages } = useImageLoading(
@@ -141,11 +143,11 @@ const Teams = () => {
             </p>
             <div className="team-stats">
               <div className="stat-item">
-                <div className="stat-number">6+</div>
+                <div className="stat-number">{teamMembers.length}</div>
                 <div className="stat-label">Team Members</div>
               </div>
               <div className="stat-item">
-                <div className="stat-number">60+</div>
+                <div className="stat-number">{combinedExperience}+</div>
                 <div className="stat-label">Years Combined Experience</div>
               </div>
               <div className="stat-item">
