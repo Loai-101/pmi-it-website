@@ -10,49 +10,49 @@ const Home = () => {
   const slides = [
     {
       id: 1,
-      image: "https://res.cloudinary.com/demo/image/upload/v1680000000/slider1.png",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551864/slider1_kpddqi.png",
       title: 'We Build Systems. You Build Success.',
       subtitle: 'From custom software to complete ERP platforms.',
       description: 'We deliver comprehensive software solutions that drive your business success and operational excellence.'
     },
     {
       id: 2,
-      image: "https://res.cloudinary.com/demo/image/upload/v1680000000/slider2.png",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551865/slider2_bt8bap.png",
       title: 'Custom Software in Every Language, for Every Business.',
       subtitle: 'Node, Python, PHP, Java, Flutter — we code your way.',
       description: 'Expert development in multiple programming languages to create solutions that perfectly fit your business needs.'
     },
     {
       id: 3,
-      image: "https://res.cloudinary.com/demo/image/upload/v1680000000/slider3.png",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551866/slider3_q6lpse.png",
       title: 'Odoo Experts. Customized to Fit Your Business.',
       subtitle: 'Tailored ERP systems that grow with you.',
       description: 'Specialized Odoo implementation and customization services designed to scale with your business growth.'
     },
     {
       id: 4,
-      image: "https://res.cloudinary.com/demo/image/upload/v1680000000/slider4.png",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551867/slider4_hguueu.png",
       title: 'Mobile App Development That Moves With You.',
       subtitle: 'iOS, Android & cross-platform apps — fast, scalable, secure.',
       description: 'Native and cross-platform mobile applications that keep pace with your business and user needs.'
     },
     {
       id: 5,
-      image: "https://res.cloudinary.com/demo/image/upload/v1680000000/slider5.png",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551868/slider5_yt9hl1.png",
       title: 'From Idea to Execution — We Build Your Vision.',
       subtitle: 'End-to-end development for modern enterprises.',
       description: 'Complete development lifecycle from concept to deployment, turning your ideas into powerful business solutions.'
     },
     {
       id: 6,
-      image: "https://res.cloudinary.com/demo/image/upload/v1680000000/slider6.jpg",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551869/slider6_ufcimj.jpg",
       title: 'Digital Solutions Without Limits.',
       subtitle: 'Web, mobile, desktop, ERP — all under one roof.',
       description: 'Comprehensive digital solutions across all platforms and technologies, all delivered by one trusted partner.'
     },
     {
       id: 7,
-      image: "https://res.cloudinary.com/demo/image/upload/v1680000000/slider7.jpg",
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751552025/slider7_we6vna.jpg",
       title: 'PMI IT: Your Technology Partner in Innovation.',
       subtitle: 'Reliable systems. Smarter operations.',
       description: 'Your trusted technology partner delivering innovative solutions that make your operations smarter and more efficient.'
