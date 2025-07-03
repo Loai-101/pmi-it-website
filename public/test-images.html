@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-image { margin: 10px; padding: 10px; border: 1px solid #ccc; }
+        .test-image img { max-width: 200px; max-height: 150px; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Image Accessibility Test</h1>
+    <p>This page tests if images are accessible from your hosting provider.</p>
+    
+    <div class="test-image">
+        <h3>Slider Images:</h3>
+        <img src="sliders/slider1.jpg" alt="Slider 1" onload="this.parentElement.innerHTML += '<p class=\'success\'>✅ Slider 1 loaded successfully</p>'" onerror="this.parentElement.innerHTML += '<p class=\'error\'>❌ Slider 1 failed to load</p>'">
+        <img src="sliders/slider2.jpg" alt="Slider 2" onload="this.parentElement.innerHTML += '<p class=\'success\'>✅ Slider 2 loaded successfully</p>'" onerror="this.parentElement.innerHTML += '<p class=\'error\'>❌ Slider 2 failed to load</p>'">
+    </div>
+    
+    <div class="test-image">
+        <h3>Logo Images:</h3>
+        <img src="logo/logo.png" alt="PMI Logo" onload="this.parentElement.innerHTML += '<p class=\'success\'>✅ PMI Logo loaded successfully</p>'" onerror="this.parentElement.innerHTML += '<p class=\'error\'>❌ PMI Logo failed to load</p>'">
+        <img src="logo/futurecities-logo.png" alt="FutureCities Logo" onload="this.parentElement.innerHTML += '<p class=\'success\'>✅ FutureCities Logo loaded successfully</p>'" onerror="this.parentElement.innerHTML += '<p class=\'error\'>❌ FutureCities Logo failed to load</p>'">
+    </div>
+    
+    <div class="test-image">
+        <h3>Team Images:</h3>
+        <img src="team/team1.jpg" alt="Team 1" onload="this.parentElement.innerHTML += '<p class=\'success\'>✅ Team 1 loaded successfully</p>'" onerror="this.parentElement.innerHTML += '<p class=\'error\'>❌ Team 1 failed to load</p>'">
+        <img src="team/team2.jpg" alt="Team 2" onload="this.parentElement.innerHTML += '<p class=\'success\'>✅ Team 2 loaded successfully</p>'" onerror="this.parentElement.innerHTML += '<p class=\'error\'>❌ Team 2 failed to load</p>'">
+    </div>
+    
+    <div class="test-image">
+        <h3>Company Logos:</h3>
+        <img src="logos/Company1.jpg" alt="Company 1" onload="this.parentElement.innerHTML += '<p class=\'success\'>✅ Company 1 loaded successfully</p>'" onerror="this.parentElement.innerHTML += '<p class=\'error\'>❌ Company 1 failed to load</p>'">
+        <img src="logos/Company2.jpg" alt="Company 2" onload="this.parentElement.innerHTML += '<p class=\'success\'>✅ Company 2 loaded successfully</p>'" onerror="this.parentElement.innerHTML += '<p class=\'error\'>❌ Company 2 failed to load</p>'">
+    </div>
+    
+    <div class="test-image">
+        <h3>Other Images:</h3>
+        <img src="partnership-agreement.jpg" alt="Partnership Agreement" onload="this.parentElement.innerHTML += '<p class=\'success\'>✅ Partnership Agreement loaded successfully</p>'" onerror="this.parentElement.innerHTML += '<p class=\'error\'>❌ Partnership Agreement failed to load</p>'">
+    </div>
+    
+    <script>
+        // Log all image loading attempts
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                console.log('Testing image:', img.src);
+            });
+        });
+    </script>
+</body>
+</html> 
