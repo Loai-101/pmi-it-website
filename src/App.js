@@ -9,6 +9,7 @@ import Team from './pages/Teams';
 import Footer from './components/Footer';
 import LoadingSpinner from './components/LoadingSpinner';
 import { usePageLoading } from './hooks/useLoadingState';
+import ScrollToTop from './ScrollToTop';
 import './App.css';
 
 function AppContent() {
@@ -46,6 +47,7 @@ function AppContent() {
       {showContent && (
         <>
           <Navbar />
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
