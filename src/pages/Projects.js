@@ -92,16 +92,16 @@ const Projects = () => {
     },
     {
       id: 5,
-      title: "SAAS ERP for Healthcare",
+      title: "Healthcare Data Analyst and Business Intelligence – KSA",
       icon: <FaHospital />,
       color: "#43e97b",
       client: "Confidential – KSA",
-      scope: "Healthcare ERP aligned with CBHI, National ID, SEHA, Nafis & PACS standards",
-      technologies: ["Odoo", "Python", "PostgreSQL"],
+      scope: "Development of a centralized platform for healthcare data analysis and business intelligence. The system integrates data from various sources to provide real-time dashboards, performance indicators, and decision-support tools for healthcare administrators and policymakers.",
+      technologies: ["Python", "PostgreSQL", "BI Tools (e.g., Power BI, Tableau, Metabase)"],
       region: "Saudi Arabia",
-      type: "Government – Healthcare",
+      type: "Government – Healthcare / Data Analytics",
       countries: ["sa"],
-      description: "Comprehensive healthcare ERP system designed for Saudi Arabia's healthcare sector with full compliance to national healthcare standards and regulations."
+      description: "Development of a centralized platform for healthcare data analysis and business intelligence. The system integrates data from various sources to provide real-time dashboards, performance indicators, and decision-support tools for healthcare administrators and policymakers."
     },
     {
       id: 6,
