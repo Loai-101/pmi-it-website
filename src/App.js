@@ -56,9 +56,6 @@ function AppContent() {
           {!isProjectsPage && <Footer />}
         </>
       )}
-
-      {/* Test Cloudinary Image */}
-      <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751552078/team1_ibiine.jpg" alt="Test Team 1" style={{maxWidth: '200px', border: '2px solid red'}} />
     </div>
   );
 }
