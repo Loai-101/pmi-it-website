@@ -135,7 +135,7 @@ const Home = () => {
                   <div className="slide-logo">
                     <img
                       alt="PMI IT Logo"
-                      className="logo-img"
+                      className="pmi-logo"
                       src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png"
                     />
                   </div>
