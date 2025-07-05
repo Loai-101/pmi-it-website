@@ -4,7 +4,7 @@ import { useImageLoading } from '../hooks/useLoadingState';
 import { IMAGES } from '../utils/imagePaths';
 import './Teams.css';
 
-const Teams = () => {
+const Team = () => {
   const [selectedMember, setSelectedMember] = useState(null);
 
   // Team members data
@@ -88,7 +88,7 @@ const Teams = () => {
 
   if (isLoading) {
     return (
-      <div className="teams">
+      <div className="team">
         <PageLoader 
           text={`Loading team members... (${loadedCount}/${totalImages})`}
           size="large" 
@@ -99,7 +99,7 @@ const Teams = () => {
   }
 
   return (
-    <div className="teams">
+    <div className="team">
       {/* Floating Icons */}
       <div className="floating-icons">
         <div className="icon icon-1">👥</div>
@@ -134,12 +134,12 @@ const Teams = () => {
         <div className="icon icon-30">🎯</div>
       </div>
 
-      <div className="teams-content">
+      <div className="team-content">
         <div className="container">
           {/* Header Section */}
-          <div className="teams-header">
+          <div className="team-header">
             <h1>Meet Our Team</h1>
-            <p className="teams-subtitle">
+            <p className="team-subtitle">
               Passionate professionals dedicated to delivering exceptional technology solutions
             </p>
             <div className="team-stats">
@@ -241,4 +241,4 @@ const Teams = () => {
   );
 };
 
-export default Teams; 
+export default Team; 

@@ -1,4 +1,4 @@
-.teams {
+.team {
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   position: relative;
@@ -74,7 +74,7 @@
   }
 }
 
-.teams-content {
+.team-content {
   padding: 40px 0;
   position: relative;
   z-index: 2;
@@ -87,12 +87,12 @@
 }
 
 /* Header Section */
-.teams-header {
+.team-header {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.teams-header h1 {
+.team-header h1 {
   font-size: 3.5rem;
   color: #333;
   margin-bottom: 1rem;
@@ -103,7 +103,7 @@
   background-clip: text;
 }
 
-.teams-subtitle {
+.team-subtitle {
   font-size: 1.3rem;
   color: #666;
   margin-bottom: 40px;
@@ -387,15 +387,15 @@
     font-size: 1.5rem;
   }
   
-  .teams-content {
+  .team-content {
     padding: 30px 0;
   }
   
-  .teams-header h1 {
+  .team-header h1 {
     font-size: 2.5rem;
   }
   
-  .teams-subtitle {
+  .team-subtitle {
     font-size: 1.1rem;
   }
   
@@ -463,11 +463,11 @@
     font-size: 1.2rem;
   }
   
-  .teams-header h1 {
+  .team-header h1 {
     font-size: 2rem;
   }
   
-  .teams-subtitle {
+  .team-subtitle {
     font-size: 1rem;
   }
   
@@ -518,7 +518,7 @@
 }
 
 @media screen and (max-width: 360px) {
-  .teams-header h1 {
+  .team-header h1 {
     font-size: 1.8rem;
   }
   
@@ -593,7 +593,7 @@
 
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
-  .teams-header h1 {
+  .team-header h1 {
     font-size: 3rem;
   }
   
@@ -611,15 +611,15 @@
     font-size: 1.5rem;
   }
   
-  .teams-content {
+  .team-content {
     padding: 30px 0;
   }
   
-  .teams-header h1 {
+  .team-header h1 {
     font-size: 2.5rem;
   }
   
-  .teams-subtitle {
+  .team-subtitle {
     font-size: 1.1rem;
   }
   
@@ -650,11 +650,11 @@
     font-size: 1.2rem;
   }
   
-  .teams-header h1 {
+  .team-header h1 {
     font-size: 2rem;
   }
   
-  .teams-subtitle {
+  .team-subtitle {
     font-size: 1rem;
   }
   
@@ -672,7 +672,7 @@
 }
 
 @media screen and (max-width: 360px) {
-  .teams-header h1 {
+  .team-header h1 {
     font-size: 1.8rem;
   }
   

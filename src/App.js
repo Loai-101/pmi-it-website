@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
 import Countries from './pages/Countries';
-import Teams from './pages/Teams';
+import Team from './pages/Teams';
 import Footer from './components/Footer';
 import LoadingSpinner from './components/LoadingSpinner';
 import { usePageLoading } from './hooks/useLoadingState';
@@ -51,7 +51,7 @@ function AppContent() {
             <Route path="/services" element={<Services />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/countries" element={<Countries />} />
-            <Route path="/teams" element={<Teams />} />
+            <Route path="/teams" element={<Team />} />
           </Routes>
           {!isProjectsPage && <Footer />}
         </>
