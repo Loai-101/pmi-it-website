@@ -222,42 +222,55 @@ const Projects = () => {
             <div className="company-logos-grid" ref={logosGridRef}>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551475/Company1_tc25l8.png" alt="Company 1" />
+                <div className="company-logo-title">World Bank</div>
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551476/Company2_lpd657.jpg" alt="Company 2" />
+                <div className="company-logo-title">Ministry of Social Affairs</div>
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551477/Company3_ursssk.png" alt="Company 3" />
+                <div className="company-logo-title">Government of Tunisia</div>
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551477/Company4_u38uwf.png" alt="Company 4" />
+                <div className="company-logo-title">European Union</div>
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551477/Company5_tc4vrk.jpg" alt="Company 5" />
+                <div className="company-logo-title">Ports</div>
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551478/Company6_nz9l7g.png" alt="Company 6" />
+                <div className="company-logo-title">Security Company</div>
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551478/Company7_wi3zvq.png" alt="Company 7" />
+                <div className="company-logo-title">Holding Telli</div>
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551479/Company8_boch2e.png" alt="Company 8" />
+                <div className="company-logo-title">KANA Company</div>
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551479/Company9_s7yba6.jpg" alt="Company 9" />
+                <div className="company-logo-title">LGTB – Gabon</div>
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551480/Company10_vv1xp5.jpg" alt="Company 10" />
+                <div className="company-logo-title">Clinic El Kendy </div>
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551480/Company11_vyd0tu.jpg" alt="Company 11" />
+                <div className="company-logo-title">Esol Company</div>
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551481/Company12_bvkued.jpg" alt="Company 12" />
+                <div className="company-logo-title">Newrest Company</div>
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551481/Company13_a0c4g3.png" alt="Company 13" />
+                <div className="company-logo-title">Oxysoft Company</div>
               </div>
             </div>
           </div>
