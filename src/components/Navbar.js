@@ -92,7 +92,7 @@ const Navbar = () => {
               className={location.pathname === '/teams' ? 'nav-link active' : 'nav-link'}
               onClick={closeMenu}
             >
-              <FaUsers className="nav-icon" /> Teams
+              <FaUsers className="nav-icon" /> Team
             </Link>
           </li>
         </ul>
