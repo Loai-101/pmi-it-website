@@ -59,21 +59,8 @@ const Home = () => {
     }
   ];
 
-  // Partnership slides data
-  const partnershipSlides = [
-    {
-      title: "Strategic Partnership Announcement",
-      subtitle: "PMI IT & FutureCitiesCouncil Inc.",
-      description: "PMI IT is proud to announce the formation of a strategic technology alliance with FutureCitiesCouncil Inc., a premier Canadian technology firm established in 2019, renowned for its expertise in developing intelligent systems and advanced IT solutions.\n\nFutureCitiesCouncil Inc. has consistently delivered cutting-edge technology services across diverse industries in both Arab and Western markets, building deep expertise and a global outlook in addressing complex digital needs.\n\nThis partnership is designed to merge the capabilities and knowledge of both organizations to offer state-of-the-art services, including comprehensive system architecture and software development, enterprise-level digital transformation, high-level IT consulting, AI-powered solutions, and intelligent infrastructure customized for sectors like healthcare, education, and e-commerce.\n\nTogether, PMI IT and FutureCitiesCouncil Inc. aim to drive technological innovation, enhance operational performance, and contribute to building a smarter, more efficient digital future for clients across the globe.",
-      image: null // No image for this slide
-    },
-    {
-      title: "Partnership Agreement",
-      subtitle: "Official Partnership Documentation",
-      description: "Our strategic partnership agreement represents the formal commitment between PMI IT and FutureCitiesCouncil Inc. to collaborate on innovative technology solutions and deliver exceptional value to our clients worldwide.",
-      image: IMAGES.PARTNERSHIP_AGREEMENT // Your agreement image
-    }
-  ];
+  
+
 
   const nextSlide = useCallback(() => {
     setCurrentSlide(current => (current === slides.length - 1 ? 0 : current + 1));

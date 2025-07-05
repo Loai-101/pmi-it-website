@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './LoadingSpinner.css';
-import logo from '../logo.svg';
 
 const LoadingSpinner = ({ isLoading = true, onLoadingComplete }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -59,7 +58,7 @@ const LoadingSpinner = ({ isLoading = true, onLoadingComplete }) => {
     <div className={`loading-spinner ${!isLoading ? 'fade-out' : ''}`}>
       <div className="spinner-container">
         <div className="logo-spinner">
-          <img src={logo} alt="PMI IT Logo" />
+          <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" alt="PMI IT Logo" />
         </div>
         <div className="spinner"></div>
         <div className="loading-text">{loadingText}</div>
