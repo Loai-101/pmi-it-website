@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import LoadingSpinner from './components/LoadingSpinner';
 import { usePageLoading } from './hooks/useLoadingState';
 import ScrollToTop from './ScrollToTop';
+import ErrorBoundary from './ErrorBoundary';
 import './App.css';
 
 function AppContent() {
@@ -45,7 +46,7 @@ function AppContent() {
       )}
       
       {showContent && (
-        <>
+        <ErrorBoundary>
           <Navbar />
           <ScrollToTop />
           <Routes>
@@ -56,7 +57,7 @@ function AppContent() {
             <Route path="/teams" element={<Team />} />
           </Routes>
           {!isProjectsPage && <Footer />}
-        </>
+        </ErrorBoundary>
       )}
     </div>
   );
