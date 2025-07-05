@@ -133,7 +133,11 @@ const Home = () => {
               {index === currentSlide && (
                 <div className="slide-content" key={currentSlide}>
                   <div className="slide-logo">
-                    <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" alt="PMI IT Logo" className="pmi-logo" />
+                    <img
+                      alt="PMI IT Logo"
+                      className="logo-img"
+                      src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png"
+                    />
                   </div>
                   <h1 className="slide-title">{slide.title}</h1>
                   <h2 className="slide-subtitle">{slide.subtitle}</h2>
