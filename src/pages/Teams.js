@@ -12,7 +12,7 @@ const Team = () => {
     {
       id: 1,
       name: 'Loai Aldaher',
-      position: 'Head of IT – PMI',
+      position: 'Team Leader',
       department: 'LEADERSHIP',
       image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751552078/team1_ibiine.jpg",
       bio: 'Visionary IT leader with over 5 years of experience in software development, system architecture, and digital transformation. Specialized in building scalable solutions, leading cross-functional teams, and integrating smart technologies tailored to business goals.',

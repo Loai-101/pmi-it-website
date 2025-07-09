@@ -242,7 +242,8 @@ const Projects = () => {
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551478/Company6_nz9l7g.png" alt="Company 6" />
-                <div className="company-logo-title">Security Company</div>
+                <div className="company-logo-title">Security Company</div> 
+                
               </div>
               <div className="company-logo">
                 <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551478/Company7_wi3zvq.png" alt="Company 7" />
