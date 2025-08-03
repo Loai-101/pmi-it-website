@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import PageLoader from '../components/PageLoader';
-import { useImageLoading } from '../hooks/useLoadingState';
-import { IMAGES } from '../utils/imagePaths';
+import { createPortal } from 'react-dom';
 import './Teams.css';
 
 const Team = () => {
@@ -59,6 +57,26 @@ const Team = () => {
       skills: ['Backend: Python & Odoo ORM', 'Frontend: XML & QWeb', 'Web & API Integration', 'DevOps & System Administration', 'Agile Collaboration & Problem Solving'],
       experience: '5+ Years'
     },
+    {
+      id: 6,
+      name: 'Hamza Riabi',
+      position: 'Sr Data Scientist | Data Engineer',
+      department: 'DATA SCIENCE & AI',
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1754203497/WhatsApp_Image_2025-08-03_at_09.42.04_fbede4b3_swcyfo.jpg",
+      bio: 'Experienced Data Scientist and Engineer with a strong background in designing and deploying machine learning models, building robust data pipelines, and delivering AI-powered solutions across industries. Proven ability to drive data strategy, automate analytics workflows, and lead end-to-end AI/ML projects from ideation to production. Skilled in modern data platforms, cloud environments, and distributed computing systems. Adept at collaborating with cross-functional teams to align technology with business value.',
+      skills: ['Machine Learning & AI (Deep Learning, NLP, LLMs, Anomaly Detection)', 'Data Engineering (ETL/ELT, Airflow, Big Data, Spark, Data Lakes)', 'Programming (Python, R, SQL, PySpark)', 'Tools & Frameworks (TensorFlow, Scikit-learn, MLflow, LangChain, Dask)', 'Databases (PostgreSQL, MongoDB, SQL Server, S3)', 'BI & Visualization (Power BI, Tableau, Plotly)', 'Cloud & DevOps (AWS, Docker, Git, OVHCloud)'],
+      experience: '5+ Years'
+    },
+    {
+      id: 7,
+      name: 'Hamza Selmi',
+      position: 'Mobile App Developer | Flutter & Web Integration Specialist',
+      department: 'MOBILE & WEB DEVELOPMENT',
+      image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1754205500/Screenshot_2025-08-03_101800_uk4c2z.png",
+      bio: 'Motivated and results-driven Software Engineer with a strong background in cross-platform mobile application development. Over 4 years of experience delivering scalable and user-friendly mobile apps integrated with powerful backend systems. Specialized in Flutter and Dart, with solid experience in building real-time features, API integrations, and responsive UI/UX. Adept at working across the full development lifecycle—from interface design to deployment. Also experienced in full-stack web development, making him versatile in both mobile and web ecosystems.',
+      skills: ['Mobile Development (Flutter, Dart, Cross-Platform Apps)', 'Front-End (Angular, Vue.js, React.js, HTML5, CSS3, Tailwind CSS, SASS)', 'Back-End (Laravel, PHP, Laravel Livewire, Node.js, REST APIs)', 'Real-Time Apps (Socket.IO, WebSockets, Google Maps Integration)', 'Tools & DevOps (Git, Asana, WordPress, Adobe Photoshop, Illustrator)', 'Databases (MySQL, NoSQL)', 'Platforms (Mobile Apps, SaaS, E-commerce, Geo-based Services)'],
+      experience: '4+ Years'
+    },
   
 
   ];
@@ -73,11 +91,6 @@ const Team = () => {
 
   const combinedExperience = calculateCombinedExperience();
 
-  // Use the custom hook for image loading
-  const { isLoading, loadedCount, totalImages } = useImageLoading(
-    teamMembers.map(member => member.image)
-  );
-
   const handleMemberClick = (member) => {
     setSelectedMember(selectedMember?.id === member.id ? null : member);
   };
@@ -85,18 +98,6 @@ const Team = () => {
   const closeDetails = () => {
     setSelectedMember(null);
   };
-
-  if (isLoading) {
-    return (
-      <div className="team">
-        <PageLoader 
-          text={`Loading team members... (${loadedCount}/${totalImages})`}
-          size="large" 
-          variant="centered"
-        />
-      </div>
-    );
-  }
 
   return (
     <div className="team">
@@ -168,7 +169,14 @@ const Team = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="member-circle-image">
-                  <img src={member.image} alt={member.name} />
+                  <img 
+                    src={member.image} 
+                    alt={member.name} 
+                    loading="lazy"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
                 </div>
                 <div className="member-circle-name">{member.name}</div>
                 <div className="member-circle-position">{member.position}</div>
@@ -177,13 +185,20 @@ const Team = () => {
           </div>
 
           {/* Member Details Modal */}
-          {selectedMember && (
+          {selectedMember && createPortal(
             <div className="member-details-modal" onClick={closeDetails}>
               <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <button className="close-btn" onClick={closeDetails}>×</button>
                 <div className="modal-header">
                   <div className="modal-image">
-                    <img src={selectedMember.image} alt={selectedMember.name} />
+                    <img 
+                      src={selectedMember.image} 
+                      alt={selectedMember.name} 
+                      loading="lazy"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
                   </div>
                   <div className="modal-info">
                     <h2>{selectedMember.name}</h2>
@@ -206,7 +221,8 @@ const Team = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div>,
+            document.body
           )}
 
           {/* Join Our Team Section */}
