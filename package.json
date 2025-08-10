@@ -57,5 +57,10 @@
     ],
     "source": "build",
     "destination": "build"
+  },
+  "overrides": {
+    "react-helmet-async": {
+      "react": "$react"
+    }
   }
 }
