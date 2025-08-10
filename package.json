@@ -45,8 +45,16 @@
   },
   "reactSnap": {
     "inlineCss": true,
-    "puppeteerArgs": ["--no-sandbox"],
-    "include": ["/", "/services", "/projects", "/countries", "/teams"],
+    "puppeteerArgs": [
+      "--no-sandbox"
+    ],
+    "include": [
+      "/",
+      "/services",
+      "/projects",
+      "/countries",
+      "/teams"
+    ],
     "source": "build",
     "destination": "build"
   }
