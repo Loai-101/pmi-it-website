@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import PageLoader from '../components/PageLoader';
 import { useImageLoading } from '../hooks/useLoadingState';
 import './Countries.css';
@@ -127,6 +128,25 @@ const Countries = () => {
 
   return (
     <div className="countries">
+      <Helmet>
+        <title>Our Regional Presence - PMI IT | Serving 7 Countries</title>
+        <meta name="description" content="PMI IT serves clients across 7 countries in the Gulf region and beyond. Discover our global presence and successful project delivery across multiple regions." />
+        <meta name="keywords" content="Gulf region, international presence, UAE, Kuwait, Qatar, Saudi Arabia, Bahrain, France, Tunisia, global IT services" />
+        <link rel="canonical" href="https://it-solutions.pmi-me.net/countries" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Our Regional Presence - PMI IT" />
+        <meta property="og:description" content="PMI IT serves clients across 7 countries in the Gulf region and beyond. Discover our global presence and successful project delivery." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://it-solutions.pmi-me.net/countries" />
+        <meta property="og:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Our Regional Presence - PMI IT" />
+        <meta name="twitter:description" content="PMI IT serves clients across 7 countries in the Gulf region and beyond. Discover our global presence and successful project delivery." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
+      </Helmet>
       {/* Floating Icons */}
       <div className="floating-icons">
         <div className="icon icon-1">🚀</div>

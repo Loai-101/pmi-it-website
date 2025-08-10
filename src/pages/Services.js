@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import './Services.css';
 import { FaCode, FaCogs, FaBuilding, FaMobile, FaDatabase, FaCloud, FaJava, FaShoppingCart, FaChevronLeft, FaChevronRight, FaIndustry, FaShip, FaHospital, FaCar, FaHandshake, FaUsers, FaChartLine, FaLaptopCode, FaServer, FaGlobe, FaShieldAlt, FaRocket, FaPalette, FaNetworkWired } from 'react-icons/fa';
 import { 
@@ -347,6 +348,25 @@ const Services = () => {
 
   return (
     <div className="services">
+      <Helmet>
+        <title>IT Services & Solutions - PMI IT | Custom Software Development</title>
+        <meta name="description" content="Comprehensive IT services including custom software development, Odoo ERP implementation, mobile app development, web applications, and digital transformation solutions." />
+        <meta name="keywords" content="custom software development, Odoo ERP, mobile apps, web development, digital transformation, IT consulting, software solutions" />
+        <link rel="canonical" href="https://it-solutions.pmi-me.net/services" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="IT Services & Solutions - PMI IT" />
+        <meta property="og:description" content="Comprehensive IT services including custom software development, Odoo ERP implementation, mobile app development, and digital transformation solutions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://it-solutions.pmi-me.net/services" />
+        <meta property="og:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="IT Services & Solutions - PMI IT" />
+        <meta name="twitter:description" content="Comprehensive IT services including custom software development, Odoo ERP implementation, mobile app development, and digital transformation solutions." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
+      </Helmet>
       {/* Detailed Services Section */}
       <div className="detailed-services-section">
         <div className="container">

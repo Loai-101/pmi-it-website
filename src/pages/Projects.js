@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FaBuilding, FaShip, FaHospital, FaIndustry, FaShoppingCart, FaRoad, FaIndustry as FaIndustry2, FaCar, FaCogs, FaDatabase, FaGlobe, FaUsers, FaChartLine } from 'react-icons/fa';
 import { SiJavascript, SiPython, SiReact, SiAngular, SiPostgresql, SiJava, SiOracle, SiKafka, SiFlutter } from 'react-icons/si';
 import { IMAGES } from '../utils/imagePaths';
@@ -211,6 +212,25 @@ const Projects = () => {
 
   return (
     <div className="projects">
+      <Helmet>
+        <title>Our Projects & Portfolio - PMI IT | Success Stories</title>
+        <meta name="description" content="Explore our successful projects including government systems, maritime logistics, healthcare platforms, and enterprise solutions. See how PMI IT delivers innovative technology solutions." />
+        <meta name="keywords" content="IT projects, portfolio, government systems, maritime logistics, healthcare platforms, enterprise solutions, success stories" />
+        <link rel="canonical" href="https://it-solutions.pmi-me.net/projects" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Our Projects & Portfolio - PMI IT" />
+        <meta property="og:description" content="Explore our successful projects including government systems, maritime logistics, healthcare platforms, and enterprise solutions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://it-solutions.pmi-me.net/projects" />
+        <meta property="og:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Our Projects & Portfolio - PMI IT" />
+        <meta name="twitter:description" content="Explore our successful projects including government systems, maritime logistics, healthcare platforms, and enterprise solutions." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
+      </Helmet>
       <div className="projects-content">
         <div className="container">
           {/* Company Logos Section */}

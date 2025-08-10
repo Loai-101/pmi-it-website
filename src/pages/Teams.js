@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { createPortal } from 'react-dom';
 import './Teams.css';
 
@@ -101,6 +102,25 @@ const Team = () => {
 
   return (
     <div className="team">
+      <Helmet>
+        <title>Meet Our Team - PMI IT | Expert IT Professionals</title>
+        <meta name="description" content="Meet our expert team of IT professionals with 50+ years combined experience. From team leaders to developers, discover the passionate professionals behind PMI IT's success." />
+        <meta name="keywords" content="IT team, software developers, project managers, tech leads, Odoo developers, data scientists, mobile developers, IT professionals" />
+        <link rel="canonical" href="https://it-solutions.pmi-me.net/teams" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Meet Our Team - PMI IT" />
+        <meta property="og:description" content="Meet our expert team of IT professionals with 50+ years combined experience. From team leaders to developers, discover the passionate professionals behind PMI IT's success." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://it-solutions.pmi-me.net/teams" />
+        <meta property="og:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Meet Our Team - PMI IT" />
+        <meta name="twitter:description" content="Meet our expert team of IT professionals with 50+ years combined experience. From team leaders to developers, discover the passionate professionals behind PMI IT's success." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
+      </Helmet>
       {/* Floating Icons */}
       <div className="floating-icons">
         <div className="icon icon-1">👥</div>
