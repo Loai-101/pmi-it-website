@@ -1,4 +1,5 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
       "source": "/(.*)",
@@ -26,7 +27,7 @@
   ],
   "rewrites": [
     { "source": "/about.php", "destination": "/api/gone" },
-    { "source": "/about.php(.*)", "destination": "/api/gone" },
+    { "source": "/about.php/:path*", "destination": "/api/gone" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 } 
