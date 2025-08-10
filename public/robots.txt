@@ -3,6 +3,8 @@ User-agent: *
 Disallow: /api/
 Disallow: /_next/
 Disallow: /static/
+Disallow: /about.php
+Disallow: /about.php*
 Allow: /
 
 Sitemap: https://it-solutions.pmi-me.net/sitemap.xml
