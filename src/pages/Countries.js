@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import PageLoader from '../components/PageLoader';
 import { useImageLoading } from '../hooks/useLoadingState';
@@ -12,7 +12,7 @@ const Countries = () => {
   });
   const [animatedCards, setAnimatedCards] = useState([]);
 
-  const countries = [
+  const countries = useMemo(() => [
     {
       name: 'UAE',
       flag: 'https://flagcdn.com/w320/ae.png',
@@ -73,7 +73,7 @@ const Countries = () => {
       capital: 'Tripoli',
       color: '#239F47'
     }
-  ];
+  ], []);
 
   // Use the custom hook for image loading
   const { isLoading, loadedCount, totalImages } = useImageLoading(
@@ -95,7 +95,7 @@ const Countries = () => {
       const timeout = setTimeout(animateCards, 500);
       return () => clearTimeout(timeout);
     }
-  }, [isLoading, countries.length]);
+  }, [isLoading, countries]);
 
   // Animate numbers
   useEffect(() => {
