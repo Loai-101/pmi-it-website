@@ -54,6 +54,24 @@ const Countries = () => {
       flag: 'https://flagcdn.com/w320/tn.png',
       capital: 'Tunis',
       color: '#E70013'
+    },
+    {
+      name: 'Gabon',
+      flag: 'https://flagcdn.com/w320/ga.png',
+      capital: 'Libreville',
+      color: '#009E60'
+    },
+    {
+      name: 'Germany',
+      flag: 'https://flagcdn.com/w320/de.png',
+      capital: 'Berlin',
+      color: '#000000'
+    },
+    {
+      name: 'Libya',
+      flag: 'https://flagcdn.com/w320/ly.png',
+      capital: 'Tripoli',
+      color: '#239F47'
     }
   ];
 
@@ -83,7 +101,7 @@ const Countries = () => {
   useEffect(() => {
     if (!isLoading) {
       const animateNumbers = () => {
-        const targets = { projects: 40, countries: 7, clients: 150 };
+        const targets = { projects: 40, countries: 10, clients: 150 };
         const duration = 8000;
         const steps = 120;
         const stepDuration = duration / steps;
@@ -129,14 +147,14 @@ const Countries = () => {
   return (
     <div className="countries">
       <Helmet>
-        <title>Our Regional Presence - PMI IT | Serving 7 Countries</title>
-        <meta name="description" content="PMI IT serves clients across 7 countries in the Gulf region and beyond. Discover our global presence and successful project delivery across multiple regions." />
+        <title>Our Regional Presence - PMI IT | Serving 10 Countries</title>
+        <meta name="description" content="PMI IT serves clients across 10 countries in the Gulf region and beyond. Discover our global presence and successful project delivery across multiple regions." />
         <meta name="keywords" content="Gulf region, international presence, UAE, Kuwait, Qatar, Saudi Arabia, Bahrain, France, Tunisia, global IT services" />
         <link rel="canonical" href="https://it-solutions.pmi-me.net/countries" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Our Regional Presence - PMI IT" />
-        <meta property="og:description" content="PMI IT serves clients across 7 countries in the Gulf region and beyond. Discover our global presence and successful project delivery." />
+        <meta property="og:description" content="PMI IT serves clients across 10 countries in the Gulf region and beyond. Discover our global presence and successful project delivery." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://it-solutions.pmi-me.net/countries" />
         <meta property="og:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
@@ -144,7 +162,7 @@ const Countries = () => {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Our Regional Presence - PMI IT" />
-        <meta name="twitter:description" content="PMI IT serves clients across 7 countries in the Gulf region and beyond. Discover our global presence and successful project delivery." />
+        <meta name="twitter:description" content="PMI IT serves clients across 10 countries in the Gulf region and beyond. Discover our global presence and successful project delivery." />
         <meta name="twitter:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
       </Helmet>
       {/* Floating Icons */}
@@ -185,7 +203,7 @@ const Countries = () => {
         <div className="container">
           <div className="countries-title">
             <h1>Our Regional Presence</h1>
-            <p className="countries-subtitle">Serving clients across 7 countries in the Gulf region and beyond</p>
+            <p className="countries-subtitle">Serving clients across 10 countries in the Gulf region and beyond</p>
           </div>
           <div className="countries-grid">
             {countries.map((country, index) => (
@@ -229,7 +247,7 @@ const Countries = () => {
                     <div className="goal-icon">🌍</div>
                     <div className="goal-number">{animatedNumbers.countries}</div>
                     <div className="goal-label">Countries Covered</div>
-                    <div className="goal-description">Successfully delivered projects in all 7 countries we serve</div>
+                    <div className="goal-description">Successfully delivered projects in all 10 countries we serve</div>
                     <div className="timeline-dot"></div>
                   </div>
                 </div>
