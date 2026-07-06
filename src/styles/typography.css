@@ -1,0 +1,428 @@
+/* ============================================================
+   PMI IT — Plus Jakarta Sans Typography System
+   Single font family · Enterprise SaaS scale · Fluid sizing
+   ============================================================ */
+
+:root {
+  --font-family: 'Plus Jakarta Sans', sans-serif;
+
+  /* Font weights */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* Fluid type scale */
+  --text-hero: clamp(2.25rem, 4.5vw + 1rem, 4.5rem);           /* 36px → 72px */
+  --text-hero-sub: clamp(1.25rem, 1.5vw + 0.75rem, 1.625rem);  /* 20px → 26px */
+  --text-section: clamp(1.625rem, 2vw + 1rem, 2.25rem);       /* 26px → 36px */
+  --text-card: clamp(1.25rem, 0.4vw + 1.1rem, 1.5rem);          /* 20px → 24px */
+  --text-body: clamp(1rem, 0.2vw + 0.94rem, 1.125rem);         /* 16px → 18px */
+  --text-body-lg: clamp(1.0625rem, 0.4vw + 0.9rem, 1.25rem);   /* 17px → 20px */
+  --text-small: 0.875rem;                                       /* 14px */
+  --text-xs: 0.8125rem;                                         /* 13px */
+
+  /* Line heights */
+  --leading-none: 1.1;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  /* Letter spacing */
+  --tracking-tighter: -0.03em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.04em;
+  --tracking-widest: 0.08em;
+}
+
+/* ---- Global font enforcement ---- */
+html {
+  font-family: var(--font-family);
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body,
+button,
+input,
+select,
+textarea,
+optgroup {
+  font-family: var(--font-family);
+}
+
+*,
+*::before,
+*::after {
+  font-family: inherit;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: var(--font-family);
+}
+
+/* ---- Base body ---- */
+body {
+  font-size: var(--text-body);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+}
+
+p,
+li,
+.about-content p,
+.modal-description,
+.modal-body p,
+.service-description p,
+.project-card-content p,
+.join-content p {
+  font-size: var(--text-body);
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* ---- Headings ---- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family);
+  font-weight: var(--font-extrabold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Hero */
+.slide-title {
+  font-size: var(--text-hero) !important;
+  font-weight: var(--font-extrabold) !important;
+  line-height: var(--leading-tight) !important;
+  letter-spacing: var(--tracking-tighter) !important;
+}
+
+.slide-subtitle {
+  font-size: var(--text-hero-sub) !important;
+  font-weight: var(--font-semibold) !important;
+  line-height: var(--leading-snug) !important;
+  letter-spacing: var(--tracking-tight) !important;
+}
+
+.slide-description {
+  font-size: var(--text-body-lg) !important;
+  font-weight: var(--font-medium) !important;
+  line-height: var(--leading-relaxed) !important;
+  letter-spacing: var(--tracking-normal) !important;
+}
+
+/* Hero coverflow — compact scale inside slide card */
+.coverflow-slide-content .slide-title {
+  font-size: clamp(0.82rem, 0.95vw + 0.5rem, 1.05rem) !important;
+  font-weight: var(--font-extrabold) !important;
+  line-height: 1.15 !important;
+  letter-spacing: var(--tracking-tight) !important;
+}
+
+.coverflow-slide-content .slide-subtitle {
+  font-size: clamp(0.72rem, 0.5vw + 0.55rem, 0.82rem) !important;
+  font-weight: var(--font-semibold) !important;
+  line-height: 1.25 !important;
+  letter-spacing: var(--tracking-normal) !important;
+}
+
+.coverflow-slide-content .slide-description {
+  font-size: clamp(0.65rem, 0.35vw + 0.5rem, 0.75rem) !important;
+  font-weight: var(--font-medium) !important;
+  line-height: 1.4 !important;
+  letter-spacing: var(--tracking-normal) !important;
+}
+
+.coverflow-slide-content .cta-button {
+  font-size: 0.75rem !important;
+}
+
+/* Section titles — unified via SectionTitle component */
+.section-title,
+.section-title-subtitle {
+  font-family: var(--font-family) !important;
+}
+
+.section-title {
+  font-size: 2.25rem !important;
+  font-weight: var(--font-extrabold) !important;
+  line-height: 1.2 !important;
+  letter-spacing: var(--tracking-tight) !important;
+}
+
+.section-title-subtitle {
+  font-size: 1.125rem !important;
+  font-weight: var(--font-regular) !important;
+  line-height: var(--leading-normal) !important;
+  letter-spacing: var(--tracking-normal) !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .section-title {
+    font-size: 2rem !important;
+  }
+
+  .section-title-subtitle {
+    font-size: 1.0625rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section-title {
+    font-size: 1.625rem !important;
+  }
+
+  .section-title-subtitle {
+    font-size: 1rem !important;
+  }
+}
+
+/* Legacy section headers (modals, heroes) */
+.services-hero h1,
+.projects-hero h1 {
+  font-size: var(--text-section) !important;
+  font-weight: var(--font-extrabold) !important;
+  line-height: var(--leading-tight) !important;
+  letter-spacing: var(--tracking-tight) !important;
+}
+
+.services-hero p,
+.projects-hero p {
+  font-size: var(--text-body-lg) !important;
+  font-weight: var(--font-regular) !important;
+  line-height: var(--leading-relaxed) !important;
+  letter-spacing: var(--tracking-normal) !important;
+}
+
+/* Card titles */
+.service-header h3,
+.project-card-content h3,
+.detailed-service-card .service-card-content h3,
+.service-card-content h3,
+.goal-label,
+.member-circle-name,
+.company-logo-title {
+  font-size: var(--text-card) !important;
+  font-weight: var(--font-bold) !important;
+  line-height: var(--leading-snug) !important;
+  letter-spacing: var(--tracking-tight) !important;
+}
+
+/* Modal titles */
+.modal-info h2,
+.member-details-modal .modal-info h2 {
+  font-size: clamp(1.5rem, 2vw + 1rem, 2rem) !important;
+  font-weight: var(--font-extrabold) !important;
+  line-height: var(--leading-tight) !important;
+  letter-spacing: var(--tracking-tight) !important;
+}
+
+.modal-section h3,
+.service-features h4,
+.modal-skills h3 {
+  font-size: var(--text-small) !important;
+  font-weight: var(--font-bold) !important;
+  letter-spacing: var(--tracking-widest) !important;
+  text-transform: uppercase;
+  line-height: var(--leading-normal) !important;
+}
+
+/* ---- Navigation ---- */
+.navbar,
+.navbar-logo,
+.logo-text,
+.nav-link,
+.menu-icon {
+  font-family: var(--font-family) !important;
+}
+
+.logo-text {
+  font-size: 1.375rem !important;
+  font-weight: var(--font-semibold) !important;
+  letter-spacing: var(--tracking-wide) !important;
+}
+
+.nav-link {
+  font-size: var(--text-small) !important;
+  font-weight: var(--font-medium) !important;
+  letter-spacing: var(--tracking-wide) !important;
+}
+
+/* ---- Buttons ---- */
+.cta-button,
+.service-btn,
+.contact-btn,
+.join-btn,
+.btn,
+.btn-primary {
+  font-family: var(--font-family) !important;
+  font-size: var(--text-body) !important;
+  font-weight: var(--font-semibold) !important;
+  letter-spacing: var(--tracking-wide) !important;
+  line-height: var(--leading-normal) !important;
+}
+
+/* ---- Labels & small text ---- */
+.service-subtitle,
+.member-circle-position,
+.modal-position,
+.modal-department,
+.stat-label,
+.goal-description,
+.service-details,
+.tech-name,
+.popular-badge,
+.slide-counter,
+.page-loader-text,
+.loading-text,
+.loading-subtitle,
+.footer-bottom,
+.skill-tag,
+.tech-tag,
+.feature-icon + *,
+.service-features li {
+  font-family: var(--font-family) !important;
+}
+
+.service-subtitle,
+.modal-position,
+.modal-department {
+  font-size: var(--text-small) !important;
+  font-weight: var(--font-semibold) !important;
+  letter-spacing: var(--tracking-wider) !important;
+}
+
+.stat-label,
+.goal-description,
+.service-details,
+.footer-bottom,
+.loading-subtitle,
+.page-loader-text {
+  font-size: var(--text-small) !important;
+  font-weight: var(--font-medium) !important;
+  line-height: var(--leading-normal) !important;
+  letter-spacing: var(--tracking-normal) !important;
+}
+
+.popular-badge,
+.tech-name,
+.skill-tag,
+.tech-tag {
+  font-size: var(--text-xs) !important;
+  font-weight: var(--font-semibold) !important;
+  letter-spacing: var(--tracking-wide) !important;
+}
+
+/* ---- Stats & numbers ---- */
+.stat-number,
+.goal-number,
+.slide-counter {
+  font-family: var(--font-family) !important;
+  font-weight: var(--font-extrabold) !important;
+  letter-spacing: var(--tracking-tight) !important;
+  line-height: var(--leading-none) !important;
+}
+
+.stat-number,
+.goal-number {
+  font-size: clamp(2rem, 3vw + 1rem, 2.75rem) !important;
+}
+
+/* ---- Footer ---- */
+.footer,
+.footer-bottom,
+.footer-nav a,
+.footer-contact a,
+.footer-company {
+  font-family: var(--font-family) !important;
+}
+
+.footer-company {
+  font-weight: var(--font-bold) !important;
+  letter-spacing: var(--tracking-wider) !important;
+}
+
+.footer-bottom {
+  font-weight: var(--font-medium) !important;
+  letter-spacing: var(--tracking-wider) !important;
+}
+
+/* ---- Forms & inputs ---- */
+input,
+select,
+textarea {
+  font-size: var(--text-body) !important;
+  font-weight: var(--font-regular) !important;
+  line-height: var(--leading-normal) !important;
+  letter-spacing: var(--tracking-normal) !important;
+}
+
+/* ---- Tables (if used) ---- */
+table,
+th,
+td {
+  font-family: var(--font-family) !important;
+  font-size: var(--text-body);
+}
+
+th {
+  font-weight: var(--font-semibold) !important;
+  letter-spacing: var(--tracking-wide) !important;
+}
+
+/* ---- Join team section ---- */
+.join-content p {
+  font-size: var(--text-body-lg) !important;
+  line-height: var(--leading-relaxed) !important;
+}
+
+/* ---- About content ---- */
+.about-content strong {
+  font-weight: var(--font-bold) !important;
+}
+
+/* ---- Loading states ---- */
+.loading-text {
+  font-size: var(--text-body-lg) !important;
+  font-weight: var(--font-medium) !important;
+  letter-spacing: var(--tracking-wide) !important;
+}
+
+/* ---- Responsive fine-tuning ---- */
+@media screen and (max-width: 768px) {
+  .nav-link {
+    font-size: var(--text-body) !important;
+  }
+
+  .logo-text {
+    font-size: 1.25rem !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slide-title {
+    letter-spacing: var(--tracking-tight) !important;
+  }
+
+  .cta-button,
+  .service-btn,
+  .join-btn {
+    font-size: var(--text-small) !important;
+  }
+}

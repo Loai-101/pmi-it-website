@@ -1,0 +1,503 @@
+/* ============================================================
+   PMI IT — Unified UI Polish (content unchanged, style only)
+   ============================================================ */
+
+/* ---- Section rhythm & backgrounds ---- */
+#services.page-section,
+#projects.page-section,
+#countries.page-section,
+#teams.page-section {
+  position: relative;
+  overflow-x: clip;
+}
+
+#services.page-section::before,
+#projects.page-section::before,
+#countries.page-section::before,
+#teams.page-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(102, 126, 234, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#services > *,
+#projects > *,
+#countries > *,
+#teams > * {
+  position: relative;
+  z-index: 1;
+}
+
+.section-about {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f6fb 100%) !important;
+}
+
+.about-title-container {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.section-about .section-title {
+  background: var(--pmi-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- Unified section headers ---- */
+.section-header,
+.countries-title,
+.team-header,
+.showcase-header {
+  margin-bottom: 3rem !important;
+}
+
+.section-header h1,
+.section-header h2,
+.countries-title h1,
+.team-header h1,
+.showcase-header h2,
+.goals-dashboard h2 {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.section-header h1::after,
+.countries-title h1::after,
+.team-header h1::after,
+.showcase-header h2::after,
+.goals-dashboard h2::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin: 1rem auto 0;
+  background: var(--pmi-gradient);
+  border-radius: 4px;
+}
+
+.section-subtitle,
+.countries-subtitle,
+.team-subtitle,
+.section-header p,
+.showcase-header p {
+  font-size: 1.125rem !important;
+  color: var(--pmi-text-muted) !important;
+  line-height: 1.7 !important;
+}
+
+/* ---- Hero slider ---- */
+.hero-slider .slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 15, 35, 0.55) 0%,
+    rgba(30, 25, 60, 0.45) 50%,
+    rgba(15, 15, 35, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+.hero-slider .slide-content {
+  position: relative;
+  z-index: 2;
+  transform: translateY(-60px);
+  margin-top: 80px;
+}
+
+.slide-title {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+}
+
+.slide-subtitle {
+  font-weight: 600 !important;
+  opacity: 0.95;
+}
+
+.slide-description {
+  font-weight: 500 !important;
+  opacity: 0.9;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.slider-nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+}
+
+.dot.active {
+  width: 28px;
+  border-radius: 6px;
+  background: white;
+}
+
+/* ---- About section ---- */
+.about-content-section {
+  background: transparent !important;
+  padding: 0 0 60px !important;
+}
+
+.about-content {
+  background: white;
+  border-radius: var(--pmi-radius-lg);
+  padding: 2.5rem 3rem;
+  box-shadow: var(--pmi-shadow);
+  border: 1px solid var(--pmi-border);
+}
+
+.about-content p {
+  color: var(--pmi-text-muted) !important;
+  line-height: 1.85 !important;
+}
+
+.about-content strong {
+  color: var(--pmi-primary);
+  font-weight: 700;
+}
+
+.about-logo {
+  border-radius: var(--pmi-radius) !important;
+  border: 1px solid var(--pmi-border) !important;
+}
+
+/* ---- Service cards ---- */
+.services {
+  background: linear-gradient(180deg, #f0f3fa 0%, #e8edf5 100%) !important;
+}
+
+.detailed-services-section {
+  background: transparent !important;
+  padding-top: 0 !important;
+}
+
+.detailed-service-card {
+  border-radius: var(--pmi-radius) !important;
+  border: 1px solid var(--pmi-border) !important;
+  background: white !important;
+  box-shadow: var(--pmi-shadow) !important;
+}
+
+.detailed-service-card.active {
+  border-color: var(--pmi-primary) !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15), var(--pmi-shadow-hover) !important;
+}
+
+.service-card {
+  border-radius: var(--pmi-radius-lg) !important;
+  border: 1px solid var(--pmi-border) !important;
+  box-shadow: var(--pmi-shadow) !important;
+}
+
+.service-card.popular {
+  border: none !important;
+  box-shadow: 0 16px 48px rgba(102, 126, 234, 0.35) !important;
+}
+
+.service-btn,
+.contact-btn {
+  width: 100%;
+  border: none;
+  border-radius: 12px !important;
+  padding: 14px 24px !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  background: var(--pmi-gradient) !important;
+  color: white !important;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+
+.service-card.popular .service-btn {
+  background: white !important;
+  color: var(--pmi-primary) !important;
+}
+
+.technology-showcase {
+  border-radius: var(--pmi-radius-lg);
+  margin: 0 20px 20px;
+  overflow: hidden;
+}
+
+.tech-item {
+  border-radius: 12px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.tech-item:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* ---- Projects ---- */
+.projects {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f6fb 100%) !important;
+}
+
+.company-logos-section {
+  background: white;
+  border-radius: var(--pmi-radius-lg);
+  padding: 2.5rem 2rem !important;
+  margin-bottom: 3rem !important;
+  box-shadow: var(--pmi-shadow);
+  border: 1px solid var(--pmi-border);
+}
+
+.company-logo {
+  background: #f8f9fc !important;
+  border-radius: var(--pmi-radius) !important;
+  border: 1px solid var(--pmi-border) !important;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.company-logo:hover {
+  background: white !important;
+  border-color: rgba(102, 126, 234, 0.3) !important;
+  box-shadow: var(--pmi-shadow-hover) !important;
+}
+
+.project-card {
+  border-radius: var(--pmi-radius-lg) !important;
+  border: 1px solid var(--pmi-border) !important;
+  background: white !important;
+  box-shadow: var(--pmi-shadow) !important;
+}
+
+.project-card.active {
+  border-color: var(--pmi-primary) !important;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12), var(--pmi-shadow-hover) !important;
+}
+
+/* ---- Countries ---- */
+.countries {
+  background: linear-gradient(180deg, #f0f3fa 0%, #e8edf5 100%) !important;
+}
+
+.flag-image {
+  border-radius: 8px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12) !important;
+}
+
+.goal-item {
+  border-radius: var(--pmi-radius-lg) !important;
+  border: 1px solid var(--pmi-border) !important;
+  box-shadow: var(--pmi-shadow) !important;
+}
+
+.goal-item:hover {
+  border-color: rgba(102, 126, 234, 0.25) !important;
+  box-shadow: var(--pmi-shadow-hover) !important;
+}
+
+.goal-number {
+  font-weight: 800;
+  background: var(--pmi-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- Team ---- */
+.team {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f6fb 100%) !important;
+}
+
+.team-stats {
+  background: white;
+  border-radius: var(--pmi-radius-lg);
+  padding: 2rem 3rem;
+  box-shadow: var(--pmi-shadow);
+  border: 1px solid var(--pmi-border);
+  display: inline-flex;
+  gap: 4rem;
+  margin: 0 auto 2rem;
+}
+
+.stat-number {
+  font-weight: 800 !important;
+  font-size: 2.75rem !important;
+}
+
+.member-circle-image {
+  border-width: 3px !important;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2) !important;
+}
+
+.join-team-section {
+  border-radius: var(--pmi-radius-lg) !important;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.25) !important;
+}
+
+.join-btn {
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  padding: 14px 32px !important;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.join-btn.primary {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.join-btn.secondary {
+  border: 2px solid rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(8px);
+}
+
+/* ---- Modals (shared) ---- */
+.service-details-modal,
+.project-details-modal,
+.member-details-modal {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.service-details-modal .modal-content,
+.project-details-modal .modal-content,
+.member-details-modal .modal-content {
+  border-radius: var(--pmi-radius-lg) !important;
+  border: 1px solid var(--pmi-border);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25) !important;
+}
+
+.close-btn {
+  background: #f4f6fb !important;
+  color: var(--pmi-text-muted) !important;
+  font-size: 1.5rem !important;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  background: #fee2e2 !important;
+  color: #dc2626 !important;
+}
+
+.modal-section h3 {
+  color: var(--pmi-primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.tech-tag,
+.skill-tag {
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+}
+
+/* ---- Footer ---- */
+.footer {
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%) !important;
+  box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.2) !important;
+  padding: 1.25rem 0 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.04em;
+}
+
+/* ---- Navbar refinements ---- */
+.navbar {
+  transition: background 0.4s ease, box-shadow 0.4s ease, height 0.3s ease;
+}
+
+.navbar.scrolled {
+  height: 68px;
+}
+
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+.contact-icon {
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+/* ---- Scrollbars (horizontal carousels) ---- */
+.detailed-services-grid,
+.company-logos-grid,
+.countries-grid {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(102, 126, 234, 0.4) transparent;
+  padding-bottom: 0.5rem;
+}
+
+/* ---- Responsive ---- */
+@media screen and (max-width: 768px) {
+  .about-content {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .team-stats {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .company-logos-section {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .technology-showcase {
+    margin: 0 12px 12px;
+  }
+
+  .hero-slider .slide-content {
+    transform: translateY(-30px);
+    margin-top: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-content {
+    padding: 1.25rem 1rem;
+    border-radius: var(--pmi-radius);
+  }
+
+  .section-header h1,
+  .countries-title h1,
+  .team-header h1 {
+    font-size: 2rem !important;
+  }
+}

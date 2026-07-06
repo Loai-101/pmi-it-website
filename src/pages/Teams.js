@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { createPortal } from 'react-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import SectionReveal, { RevealItem } from '../components/SectionReveal';
+import SectionTitle from '../components/SectionTitle';
 import './Teams.css';
 
 const Team = () => {
   const [selectedMember, setSelectedMember] = useState(null);
 
-  // Team members data
   const teamMembers = [
     {
       id: 1,
@@ -78,11 +79,8 @@ const Team = () => {
       skills: ['Mobile Development (Flutter, Dart, Cross-Platform Apps)', 'Front-End (Angular, Vue.js, React.js, HTML5, CSS3, Tailwind CSS, SASS)', 'Back-End (Laravel, PHP, Laravel Livewire, Node.js, REST APIs)', 'Real-Time Apps (Socket.IO, WebSockets, Google Maps Integration)', 'Tools & DevOps (Git, Asana, WordPress, Adobe Photoshop, Illustrator)', 'Databases (MySQL, NoSQL)', 'Platforms (Mobile Apps, SaaS, E-commerce, Geo-based Services)'],
       experience: '4+ Years'
     },
-  
-
   ];
 
-  // Calculate combined experience
   const calculateCombinedExperience = () => {
     return teamMembers.reduce((total, member) => {
       const years = parseInt(member.experience);
@@ -93,162 +91,158 @@ const Team = () => {
   const combinedExperience = calculateCombinedExperience();
 
   const handleMemberClick = (member) => {
-    setSelectedMember(selectedMember?.id === member.id ? null : member);
+    setSelectedMember(member);
   };
 
   const closeDetails = () => {
     setSelectedMember(null);
   };
 
-  return (
-    <div className="team">
-      <Helmet>
-        <title>Meet Our Team - PMI IT | Expert IT Professionals</title>
-        <meta name="description" content="Meet our expert team of IT professionals with 50+ years combined experience. From team leaders to developers, discover the passionate professionals behind PMI IT's success." />
-        <meta name="keywords" content="IT team, software developers, project managers, tech leads, Odoo developers, data scientists, mobile developers, IT professionals" />
-        <link rel="canonical" href="https://it-solutions.pmi-me.net/teams" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Meet Our Team - PMI IT" />
-        <meta property="og:description" content="Meet our expert team of IT professionals with 50+ years combined experience. From team leaders to developers, discover the passionate professionals behind PMI IT's success." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://it-solutions.pmi-me.net/teams" />
-        <meta property="og:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Meet Our Team - PMI IT" />
-        <meta name="twitter:description" content="Meet our expert team of IT professionals with 50+ years combined experience. From team leaders to developers, discover the passionate professionals behind PMI IT's success." />
-        <meta name="twitter:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
-      </Helmet>
-      {/* Floating Icons */}
-      <div className="floating-icons">
-        <div className="icon icon-1">👥</div>
-        <div className="icon icon-2">💼</div>
-        <div className="icon icon-3">🎯</div>
-        <div className="icon icon-4">🚀</div>
-        <div className="icon icon-5">💡</div>
-        <div className="icon icon-6">🔧</div>
-        <div className="icon icon-7">📊</div>
-        <div className="icon icon-8">🌟</div>
-        <div className="icon icon-9">🎨</div>
-        <div className="icon icon-10">⚡</div>
-        <div className="icon icon-11">🔒</div>
-        <div className="icon icon-12">📈</div>
-        <div className="icon icon-13">🛠️</div>
-        <div className="icon icon-14">🎪</div>
-        <div className="icon icon-15">🔍</div>
-        <div className="icon icon-16">📋</div>
-        <div className="icon icon-17">🎭</div>
-        <div className="icon icon-18">🔮</div>
-        <div className="icon icon-19">⚙️</div>
-        <div className="icon icon-20">🎪</div>
-        <div className="icon icon-21">🔬</div>
-        <div className="icon icon-22">🎪</div>
-        <div className="icon icon-23">🔧</div>
-        <div className="icon icon-24">📱</div>
-        <div className="icon icon-25">💻</div>
-        <div className="icon icon-26">🌐</div>
-        <div className="icon icon-27">🚀</div>
-        <div className="icon icon-28">⚡</div>
-        <div className="icon icon-29">📊</div>
-        <div className="icon icon-30">🎯</div>
-      </div>
+  useEffect(() => {
+    if (!selectedMember) return undefined;
 
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') closeDetails();
+    };
+
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleEscape);
+
+    return () => {
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [selectedMember]);
+
+  return (
+    <SectionReveal id="teams" className="team">
       <div className="team-content">
         <div className="container">
-          {/* Header Section */}
-          <div className="team-header">
-            <h1>Meet Our Team</h1>
-            <p className="team-subtitle">
-              Passionate professionals dedicated to delivering exceptional technology solutions
-            </p>
-            <div className="team-stats">
-              <div className="stat-item">
-                <div className="stat-number">{teamMembers.length}</div>
-                <div className="stat-label">Team Members</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">{combinedExperience}+</div>
-                <div className="stat-label">Years Combined Experience</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">40+</div>
-                <div className="stat-label">Projects Delivered</div>
-              </div>
+          <SectionTitle
+            as="h1"
+            title="The Experts Behind Every Solution"
+          />
+
+          <div className="team-stats-bar">
+            <div className="team-stat-card">
+              <div className="team-stat-value">{teamMembers.length}</div>
+              <div className="team-stat-label">Team Members</div>
+            </div>
+            <div className="team-stat-card">
+              <div className="team-stat-value">{combinedExperience}+</div>
+              <div className="team-stat-label">Years Combined Experience</div>
+            </div>
+            <div className="team-stat-card">
+              <div className="team-stat-value">40+</div>
+              <div className="team-stat-label">Projects Delivered</div>
             </div>
           </div>
 
-          {/* Team Members Circle Row */}
-          <div className="team-circle-row">
-            {teamMembers.map((member, index) => (
-              <div 
-                key={member.id} 
-                className={`team-member-circle ${selectedMember?.id === member.id ? 'active' : ''}`}
-                onClick={() => handleMemberClick(member)}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="member-circle-image">
-                  <img 
-                    src={member.image} 
-                    alt={member.name} 
-                    loading="lazy"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                </div>
-                <div className="member-circle-name">{member.name}</div>
-                <div className="member-circle-position">{member.position}</div>
-              </div>
+          <div className="team-cards-grid">
+            {teamMembers.map((member) => (
+              <RevealItem key={member.id} className="team-card-reveal">
+                <button
+                  type="button"
+                  className={`team-member-card ${selectedMember?.id === member.id ? 'is-active' : ''}`}
+                  onClick={() => handleMemberClick(member)}
+                  aria-label={`View profile of ${member.name}`}
+                >
+                  <div className="team-card-avatar-wrap">
+                    <div className="team-card-avatar">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        loading="lazy"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <h3 className="team-card-name">{member.name}</h3>
+                  <p className="team-card-role">{member.position}</p>
+                  <span className="team-card-cta">View Profile</span>
+                </button>
+              </RevealItem>
             ))}
           </div>
 
-          {/* Member Details Modal */}
-          {selectedMember && createPortal(
-            <div className="member-details-modal" onClick={closeDetails}>
-              <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                <button className="close-btn" onClick={closeDetails}>×</button>
-                <div className="modal-header">
-                  <div className="modal-image">
-                    <img 
-                      src={selectedMember.image} 
-                      alt={selectedMember.name} 
-                      loading="lazy"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
-                  </div>
-                  <div className="modal-info">
-                    <h2>{selectedMember.name}</h2>
-                    <p className="modal-position">{selectedMember.position}</p>
-                    <p className="modal-department">{selectedMember.department}</p>
-                    <p className="modal-experience">{selectedMember.experience}</p>
-                  </div>
-                </div>
-                <div className="modal-body">
-                  <p className="modal-bio">{selectedMember.bio}</p>
-                  <div className="modal-skills">
-                    <h3>Skills & Expertise</h3>
-                    <div className="skills-grid">
-                      {selectedMember.skills.map((skill, skillIndex) => (
-                        <span key={skillIndex} className="skill-tag">
-                          {skill}
-                        </span>
-                      ))}
+          {createPortal(
+            <AnimatePresence>
+              {selectedMember && (
+                <motion.div
+                  className="member-details-modal"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                  onClick={closeDetails}
+                >
+                  <motion.div
+                    className="team-modal-content"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="team-modal-name"
+                    initial={{ opacity: 0, scale: 0.92, y: 28 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.92, y: 28 }}
+                    transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <button type="button" className="team-modal-close" onClick={closeDetails} aria-label="Close profile">
+                      ×
+                    </button>
+
+                    <div className="team-modal-header">
+                      <div className="team-modal-avatar">
+                        <img
+                          src={selectedMember.image}
+                          alt={selectedMember.name}
+                          loading="lazy"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                          }}
+                        />
+                      </div>
+                      <div className="team-modal-info">
+                        <h2 id="team-modal-name">{selectedMember.name}</h2>
+                        <p className="team-modal-role">{selectedMember.position}</p>
+                        <p className="team-modal-department">{selectedMember.department}</p>
+                        <p className="team-modal-experience">{selectedMember.experience}</p>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>,
+
+                    <div className="team-modal-body">
+                      {selectedMember.bio && (
+                        <p className="team-modal-bio">{selectedMember.bio}</p>
+                      )}
+
+                      {selectedMember.skills?.length > 0 && (
+                        <div className="team-modal-skills">
+                          <h3>Skills & Expertise</h3>
+                          <div className="team-skills-grid">
+                            {selectedMember.skills.map((skill, skillIndex) => (
+                              <span key={skillIndex} className="team-skill-tag">
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>,
             document.body
           )}
 
-          {/* Join Our Team Section */}
           <div className="join-team-section">
             <div className="join-content">
-              <h2>Join Our Team</h2>
+              <SectionTitle
+                title="Build the Future With Us"
+                className="section-title-block--join"
+              />
               <p>
                 We're always looking for talented individuals who are passionate about technology 
                 and innovation. Join us in building the future of digital solutions.
@@ -273,8 +267,8 @@ const Team = () => {
           </div>
         </div>
       </div>
-    </div>
+    </SectionReveal>
   );
 };
 
-export default Team; 
+export default Team;

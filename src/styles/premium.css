@@ -1,0 +1,697 @@
+/* ================================================================
+   PMI IT — Premium Enterprise Design System
+   Content unchanged · Visual layer only
+   ================================================================ */
+
+:root {
+  --ink-950: #07051a;
+  --ink-900: #0f0d24;
+  --ink-800: #1a1736;
+  --ink-700: #252247;
+  --ink-600: #3d3a5c;
+  --ink-500: #5a5a72;
+  --ink-400: #8b8aa3;
+  --ink-200: #e2e4ef;
+  --ink-100: #f4f5fa;
+  --ink-50: #fafbfe;
+
+  --brand-500: #667eea;
+  --brand-600: #5a6fd6;
+  --brand-700: #4f5fc4;
+  --accent-500: #764ba2;
+  --accent-600: #6a4291;
+
+  --gradient-brand: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-brand-hover: linear-gradient(135deg, #5a6fd6 0%, #6a4291 100%);
+  --gradient-dark: linear-gradient(160deg, #0f0d24 0%, #1e1b4b 45%, #312e81 100%);
+  --gradient-mesh: radial-gradient(ellipse 90% 60% at 10% -10%, rgba(102, 126, 234, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 20%, rgba(118, 75, 162, 0.14) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(102, 126, 234, 0.08) 0%, transparent 50%);
+
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: blur(20px);
+
+  --card-bg: #ffffff;
+  --card-border: rgba(102, 126, 234, 0.1);
+  --card-shadow: 0 1px 2px rgba(15, 13, 36, 0.04), 0 8px 32px rgba(102, 126, 234, 0.08);
+  --card-shadow-hover: 0 4px 8px rgba(15, 13, 36, 0.06), 0 24px 64px rgba(102, 126, 234, 0.16);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --section-gap: clamp(80px, 10vw, 120px);
+}
+
+/* ---- Global page ---- */
+.landing-page {
+  color: var(--ink-100);
+}
+
+.page-section {
+  padding-block: var(--section-gap);
+}
+
+#home.page-section {
+  padding-block: 0;
+}
+
+/* Section surfaces — see section-surfaces.css */
+#about.page-section,
+#projects.page-section,
+#teams.page-section,
+#services.page-section {
+  position: relative;
+  padding-top: 0 !important;
+}
+
+#about > *,
+#services > *,
+#projects > *,
+#teams > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================================================================
+   NAVBAR — Brand gradient (no white)
+   ================================================================ */
+.navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  animation: none !important;
+  height: var(--navbar-height, 64px) !important;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.35);
+  transition: all 0.45s var(--ease-premium);
+}
+
+.navbar.scrolled {
+  height: calc(var(--navbar-height, 64px) - 6px) !important;
+  background: linear-gradient(135deg, #5a6fd6 0%, #6a4291 100%) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: rgba(102, 126, 234, 0.4);
+  box-shadow: 0 8px 40px rgba(49, 46, 129, 0.35);
+}
+
+.navbar-logo .logo-img {
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.45);
+}
+
+.nav-link:hover {
+  background: rgba(49, 46, 129, 0.35) !important;
+  transform: none !important;
+}
+
+.nav-link.active {
+  background: rgba(49, 46, 129, 0.45) !important;
+  box-shadow: inset 0 0 0 1px rgba(102, 126, 234, 0.35) !important;
+}
+
+.contact-icon {
+  background: rgba(49, 46, 129, 0.35) !important;
+  border: 1px solid rgba(102, 126, 234, 0.4) !important;
+  backdrop-filter: blur(12px);
+}
+
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    background: linear-gradient(160deg, #4f5fc4 0%, #6a4291 100%) !important;
+    backdrop-filter: blur(16px);
+    animation: none !important;
+    border-top: 1px solid rgba(102, 126, 234, 0.35);
+  }
+}
+
+/* ================================================================
+   HERO — Coverflow carousel (see HeroCoverflow.css)
+   ================================================================ */
+.section-hero {
+  padding: 0 !important;
+}
+
+/* ================================================================
+   ABOUT — Partnership showcase
+   ================================================================ */
+.section-about {
+  padding-block: var(--section-gap) !important;
+  background: var(--ink-50) !important;
+}
+
+.about-title-container {
+  margin-top: 0 !important;
+  margin-bottom: 2rem !important;
+}
+
+.about-logos-section {
+  gap: 2rem !important;
+  margin-bottom: 0 !important;
+}
+
+.about-logo {
+  background: var(--card-bg) !important;
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--card-border) !important;
+  box-shadow: var(--card-shadow) !important;
+  padding: 20px 28px !important;
+}
+
+.about-content-section {
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.about-content {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1.75rem, 4vw, 3rem);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--gradient-brand);
+  border-radius: 4px 0 0 4px;
+}
+
+.section-title {
+  background: var(--gradient-brand) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-shadow: none !important;
+}
+
+/* ================================================================
+   SERVICES — Premium card grid
+   ================================================================ */
+.services {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.detailed-services-section {
+  background: transparent !important;
+  padding: 1.25rem 0 2rem !important;
+}
+
+.section-header {
+  margin-bottom: 0 !important;
+}
+
+.detailed-services-section .section-subtitle {
+  color: rgba(255, 255, 255, 0.62) !important;
+  max-width: 640px;
+}
+
+.detailed-services-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.5rem !important;
+  overflow-x: clip !important;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+  justify-content: stretch !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .detailed-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .detailed-services-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.detailed-service-card {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--card-shadow) !important;
+  min-width: unset !important;
+  max-width: none !important;
+  width: 100% !important;
+  padding: 1.75rem 1.5rem !important;
+  min-height: 200px;
+}
+
+.detailed-service-card .service-card-icon {
+  font-size: 2.25rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.detailed-service-card .service-card-content h3 {
+  font-size: 1.05rem !important;
+  line-height: 1.35 !important;
+  color: var(--ink-900) !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.detailed-service-card .service-card-content p {
+  font-size: 0.9rem !important;
+  line-height: 1.55 !important;
+  color: var(--ink-500) !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .detailed-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .detailed-services-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .detailed-service-card {
+    min-height: auto !important;
+  }
+}
+
+.detailed-service-card:hover,
+.detailed-service-card.active {
+  border-color: rgba(102, 126, 234, 0.35) !important;
+  box-shadow: var(--card-shadow-hover) !important;
+  transform: translateY(-8px) !important;
+}
+
+.detailed-service-card.active {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12), var(--card-shadow-hover) !important;
+}
+
+.service-card {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--card-shadow) !important;
+  padding: 2.25rem !important;
+}
+
+.service-card::before {
+  height: 3px !important;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.service-card:hover {
+  border-color: rgba(102, 126, 234, 0.25) !important;
+  box-shadow: var(--card-shadow-hover) !important;
+  transform: translateY(-8px) !important;
+}
+
+.service-card.popular {
+  background: var(--gradient-brand) !important;
+  border: none !important;
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.35) !important;
+  transform: scale(1.03);
+}
+
+.service-card.popular:hover {
+  transform: scale(1.03) translateY(-8px) !important;
+}
+
+.popular-badge {
+  border-radius: var(--radius-full) !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.service-btn,
+.contact-btn {
+  border-radius: var(--radius-sm) !important;
+  background: var(--gradient-brand) !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3) !important;
+}
+
+.technology-showcase {
+  background: var(--ink-900) !important;
+  border-radius: var(--radius-xl) !important;
+  margin: 0 !important;
+  padding: 3rem 0 !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.technology-showcase::before {
+  opacity: 0.15 !important;
+}
+
+.showcase-header h2 {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+  background: none !important;
+}
+
+.showcase-header p {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.tech-item {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--radius-md) !important;
+  backdrop-filter: blur(8px);
+}
+
+.technology-slider .slider-nav {
+  background: var(--glass-bg) !important;
+}
+
+/* Service modal */
+.service-details-modal {
+  backdrop-filter: blur(12px) !important;
+  background: rgba(7, 5, 26, 0.75) !important;
+}
+
+.service-details-modal .modal-content {
+  border-radius: var(--radius-xl) !important;
+  border: 1px solid var(--card-border) !important;
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ================================================================
+   PROJECTS — Portfolio showcase
+   ================================================================ */
+.projects {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.company-logos-section {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: var(--radius-xl) !important;
+  box-shadow: var(--card-shadow) !important;
+  padding: 2.5rem 2rem !important;
+  margin-bottom: 3.5rem !important;
+}
+
+.company-logo {
+  background: var(--ink-50) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: var(--radius-md) !important;
+  min-width: 140px !important;
+  padding: 1rem !important;
+}
+
+.company-logo:hover {
+  background: white !important;
+  box-shadow: var(--card-shadow-hover) !important;
+  transform: translateY(-6px) !important;
+}
+
+.project-card {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--card-shadow) !important;
+  padding: 1.75rem !important;
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  padding: 1px;
+  background: var(--gradient-brand);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-premium);
+  pointer-events: none;
+}
+
+.project-card:hover::after,
+.project-card.active::after {
+  opacity: 1;
+}
+
+.project-card:hover,
+.project-card.active {
+  transform: translateY(-8px) !important;
+  box-shadow: var(--card-shadow-hover) !important;
+}
+
+.project-details-modal {
+  backdrop-filter: blur(12px) !important;
+  background: rgba(7, 5, 26, 0.75) !important;
+}
+
+.project-details-modal .modal-content {
+  border-radius: var(--radius-xl) !important;
+}
+
+.tech-tag {
+  background: rgba(102, 126, 234, 0.08) !important;
+  border: 1px solid rgba(102, 126, 234, 0.15) !important;
+  color: var(--brand-600) !important;
+  border-radius: var(--radius-full) !important;
+  padding: 6px 14px !important;
+}
+
+/* ================================================================
+   COUNTRIES — Global presence metrics
+   ================================================================ */
+.countries {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.countries-content {
+  padding: 0 !important;
+}
+
+.flag-image {
+  border-radius: var(--radius-sm) !important;
+  box-shadow: var(--card-shadow) !important;
+  border: 2px solid white !important;
+}
+
+.goals-dashboard {
+  margin-top: 3rem;
+}
+
+.goal-item {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+.goal-item:hover {
+  box-shadow: var(--card-shadow-hover) !important;
+  transform: translateY(-8px) !important;
+  border-color: rgba(102, 126, 234, 0.2) !important;
+}
+
+.timeline-line {
+  height: 2px !important;
+  opacity: 0.6;
+}
+
+/* ================================================================
+   TEAM — People & culture
+   ================================================================ */
+.team {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.team-content {
+  padding: 0 !important;
+}
+
+.team-stats-bar {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.team-stat-card {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.team-stat-value {
+  font-family: var(--font-family) !important;
+}
+
+.member-circle-image,
+.team-card-avatar {
+  border: 3px solid transparent !important;
+  background: linear-gradient(rgba(26, 23, 54, 0.9), rgba(26, 23, 54, 0.9)) padding-box,
+    var(--gradient-brand) border-box !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+.team-member-circle:hover .member-circle-image,
+.team-member-circle.active .member-circle-image,
+.team-member-card:hover .team-card-avatar,
+.team-member-card.is-active .team-card-avatar {
+  box-shadow: var(--card-shadow-hover) !important;
+}
+
+.team-member-card {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--radius-xl) !important;
+}
+
+.join-team-section {
+  background: var(--gradient-dark) !important;
+  border-radius: var(--radius-xl) !important;
+  border: 1px solid var(--glass-border) !important;
+  margin-top: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.join-team-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-mesh);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.join-content {
+  position: relative;
+  z-index: 1;
+}
+
+.join-btn.primary {
+  background: white !important;
+  color: var(--ink-900) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+.join-btn.secondary {
+  background: var(--glass-bg) !important;
+  color: white !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: var(--radius-sm) !important;
+}
+
+.member-details-modal {
+  backdrop-filter: blur(16px) !important;
+}
+
+.team-modal-content {
+  border-radius: var(--radius-xl) !important;
+}
+
+.skill-tag,
+.team-skill-tag {
+  background: rgba(102, 126, 234, 0.08) !important;
+  border: 1px solid rgba(102, 126, 234, 0.15) !important;
+  color: var(--brand-600) !important;
+  border-radius: var(--radius-full) !important;
+}
+
+.team-skill-tag {
+  color: #c4b5fd !important;
+  border-color: rgba(139, 92, 246, 0.25) !important;
+}
+
+/* ================================================================
+   FOOTER — Luxury corporate close
+   ================================================================ */
+.footer {
+  background: linear-gradient(180deg, #0c0a1f 0%, #07051a 100%) !important;
+  margin-top: 0 !important;
+  border-top: none !important;
+}
+
+.footer-bottom-bar {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================================================================
+   MODALS — Shared premium dialogs
+   ================================================================ */
+.close-btn {
+  background: var(--ink-100) !important;
+  color: var(--ink-600) !important;
+  border-radius: var(--radius-full) !important;
+  transition: all 0.25s var(--ease-premium) !important;
+}
+
+.close-btn:hover {
+  background: #fee2e2 !important;
+  color: #dc2626 !important;
+  transform: rotate(90deg) !important;
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--ink-200) !important;
+}
+
+.modal-section h3 {
+  color: var(--brand-600) !important;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media screen and (max-width: 768px) {
+  .team-stats-bar {
+    grid-template-columns: 1fr !important;
+    gap: 0.65rem !important;
+    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .technology-showcase {
+    border-radius: var(--radius-lg) !important;
+    margin: 0 !important;
+  }
+
+  .company-logo {
+    min-width: 110px !important;
+  }
+
+  .service-card.popular {
+    transform: none !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-content {
+    border-radius: var(--radius-lg);
+  }
+
+  .company-logos-section,
+  .join-team-section {
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .company-logo {
+    min-width: 96px !important;
+  }
+}

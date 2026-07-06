@@ -1,0 +1,113 @@
+.top-contact-bar {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(90deg, #0c0a1f 0%, #14122e 50%, #0c0a1f 100%);
+  border-bottom: none;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.8rem;
+  z-index: 110;
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.top-contact-bar-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0.45rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.top-contact-details,
+.top-contact-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.top-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.top-contact-item:hover {
+  color: #fff;
+}
+
+.top-contact-placeholder {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.top-contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.top-contact-icon:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.top-contact-icon.whatsapp:hover {
+  background: #25d366;
+  border-color: #25d366;
+}
+
+.top-contact-icon.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+  border-color: transparent;
+}
+
+.top-contact-placeholder:hover {
+  transform: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media screen and (max-width: 900px) {
+  .top-contact-item span:not(.top-contact-placeholder-text) {
+    display: none;
+  }
+
+  .top-contact-placeholder-text {
+    display: none;
+  }
+
+  .top-contact-details {
+    gap: 0.65rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .top-contact-bar-inner {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .top-contact-actions {
+    gap: 0.45rem;
+  }
+
+  .top-contact-icon {
+    width: 26px;
+    height: 26px;
+  }
+}

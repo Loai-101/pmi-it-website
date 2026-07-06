@@ -1,0 +1,210 @@
+/* ================================================================
+   Projects Marquee — same style as We Work With bar
+   ================================================================ */
+
+.projects-marquee-section {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.projects-marquee-header {
+  text-align: center;
+  padding: 0;
+  max-width: none;
+  margin: 0 auto;
+}
+
+.projects-marquee-bar {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  background: transparent;
+  border-top: none;
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.projects-marquee-viewport {
+  overflow: hidden;
+  width: 100%;
+  padding: 1.35rem 0 1.5rem;
+}
+
+.projects-marquee-viewport:hover .projects-marquee-track {
+  animation-play-state: paused;
+}
+
+.projects-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: projects-marquee-scroll 58s linear infinite;
+}
+
+.projects-marquee-row {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.projects-marquee-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.45rem;
+  padding: 0.5rem 1.25rem 0.65rem;
+  flex-shrink: 0;
+  width: 240px;
+  max-width: 240px;
+}
+
+.projects-marquee-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid rgba(102, 126, 234, 0.12);
+  color: var(--project-color, #667eea);
+  font-size: 1.75rem;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+}
+
+.projects-marquee-item:hover .projects-marquee-icon {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 28px rgba(102, 126, 234, 0.22);
+}
+
+.projects-marquee-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  text-align: center;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.2em;
+}
+
+.projects-marquee-flags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.15rem;
+}
+
+.projects-marquee-flag {
+  width: 22px;
+  height: auto;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  object-fit: cover;
+}
+
+.projects-marquee-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.projects-marquee-fade-left {
+  left: 0;
+  background: linear-gradient(90deg, rgba(15, 13, 36, 0.95) 0%, transparent 100%);
+}
+
+.projects-marquee-fade-right {
+  right: 0;
+  background: linear-gradient(270deg, rgba(15, 13, 36, 0.95) 0%, transparent 100%);
+}
+
+@keyframes projects-marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .projects-marquee-header {
+    padding: 0.75rem 1rem 0.5rem;
+  }
+
+  .projects-marquee-viewport {
+    padding: 1rem 0 1.15rem;
+  }
+
+  .projects-marquee-item {
+    width: 200px;
+    max-width: 200px;
+    padding: 0.4rem 1rem;
+  }
+
+  .projects-marquee-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 1.5rem;
+  }
+
+  .projects-marquee-label {
+    font-size: 0.72rem;
+  }
+
+  .projects-marquee-track {
+    animation-duration: 46s;
+  }
+
+  .projects-marquee-fade {
+    width: 48px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projects-marquee-item {
+    width: 180px;
+    max-width: 180px;
+  }
+
+  .projects-marquee-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.35rem;
+  }
+
+  .projects-marquee-track {
+    animation-duration: 38s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .projects-marquee-row[aria-hidden='true'] {
+    display: none;
+  }
+
+  .projects-marquee-viewport {
+    overflow: visible;
+  }
+}

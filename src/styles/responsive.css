@@ -1,0 +1,76 @@
+/* ================================================================
+   Global responsive safeguards — layout only, no visual redesign
+   ================================================================ */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+#root,
+.App,
+.landing-page {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+video,
+svg,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent flex/grid children from forcing horizontal scroll */
+.page-section,
+.site-header,
+.footer,
+.hero-coverflow,
+.partnership-slider,
+.partners-marquee-section,
+.projects-marquee-section,
+.technologies-marquee-section,
+.add-value-quote,
+.completed-projects-section {
+  max-width: 100%;
+}
+
+/* Long contact strings (email, URLs) */
+.footer-contact-item span,
+.top-contact-item span {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Touch devices: skip hover tooltips that extend off-screen */
+@media (hover: none), (max-width: 767px) {
+  .floating-contact-btn::after {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --section-padding: clamp(64px, 8vw, 88px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --section-padding: clamp(52px, 7vw, 72px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --section-padding: clamp(44px, 6vw, 60px);
+  }
+}
+
+@media screen and (max-width: 360px) {
+  :root {
+    --section-padding: 40px;
+  }
+}

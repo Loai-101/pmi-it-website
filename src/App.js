@@ -1,27 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Services from './pages/Services';
-import Projects from './pages/Projects';
-import Countries from './pages/Countries';
-import Team from './pages/Teams';
+import SiteHeader from './components/SiteHeader';
+import Landing from './pages/Landing';
 import Footer from './components/Footer';
 import LoadingSpinner from './components/LoadingSpinner';
 import { usePageLoading } from './hooks/useLoadingState';
-import ScrollToTop from './ScrollToTop';
 import ErrorBoundary from './ErrorBoundary';
 import './App.css';
+import './styles/typography.css';
 
 function AppContent() {
-  const location = useLocation();
   const { isLoading } = usePageLoading();
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
     if (!isLoading) {
-      // Add a small delay for smooth transition
       const timer = setTimeout(() => {
         setShowContent(true);
       }, 100);
@@ -34,9 +28,6 @@ function AppContent() {
     setShowContent(true);
   };
 
-  // Check if current route is projects page
-  const isProjectsPage = location.pathname === '/projects';
-
   return (
     <div className="App">
       {!showContent && (
@@ -48,16 +39,16 @@ function AppContent() {
       
       {showContent && (
         <ErrorBoundary>
-          <Navbar />
-          <ScrollToTop />
+          <SiteHeader />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/countries" element={<Countries />} />
-            <Route path="/teams" element={<Team />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/services" element={<Navigate to="/#services" replace />} />
+            <Route path="/projects" element={<Navigate to="/#projects" replace />} />
+            <Route path="/countries" element={<Navigate to="/#countries" replace />} />
+            <Route path="/teams" element={<Navigate to="/#teams" replace />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-          {!isProjectsPage && <Footer />}
+          <Footer />
         </ErrorBoundary>
       )}
     </div>

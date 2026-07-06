@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import PageLoader from '../components/PageLoader';
+import SectionReveal from '../components/SectionReveal';
 import { useImageLoading } from '../hooks/useLoadingState';
 import './Countries.css';
 
@@ -75,29 +76,25 @@ const Countries = () => {
     }
   ], []);
 
-  // Use the custom hook for image loading
   const { isLoading, loadedCount, totalImages } = useImageLoading(
     countries.map(country => country.flag)
   );
 
-  // Animate country cards one by one
   useEffect(() => {
     if (!isLoading) {
       const animateCards = () => {
         countries.forEach((_, index) => {
           setTimeout(() => {
             setAnimatedCards(prev => [...prev, index]);
-          }, index * 300); // 300ms delay between each card
+          }, index * 300);
         });
       };
 
-      // Start card animations after a short delay
       const timeout = setTimeout(animateCards, 500);
       return () => clearTimeout(timeout);
     }
   }, [isLoading, countries]);
 
-  // Animate numbers
   useEffect(() => {
     if (!isLoading) {
       const animateNumbers = () => {
@@ -110,7 +107,7 @@ const Countries = () => {
         const timer = setInterval(() => {
           currentStep++;
           const progress = currentStep / steps;
-          
+
           setAnimatedNumbers({
             projects: Math.floor(targets.projects * progress),
             countries: Math.floor(targets.countries * progress),
@@ -126,7 +123,6 @@ const Countries = () => {
         return () => clearInterval(timer);
       };
 
-      // Start animation after a delay
       const timeout = setTimeout(animateNumbers, 500);
       return () => clearTimeout(timeout);
     }
@@ -134,71 +130,36 @@ const Countries = () => {
 
   if (isLoading) {
     return (
-      <div className="countries">
-        <PageLoader 
+      <SectionReveal id="countries" className="countries">
+        <PageLoader
           text={`Loading flags... (${loadedCount}/${totalImages})`}
-          size="large" 
+          size="large"
           variant="centered"
         />
-      </div>
+      </SectionReveal>
     );
   }
 
   return (
-    <div className="countries">
+    <SectionReveal id="countries" className="countries">
       <Helmet>
         <title>Our Regional Presence - PMI IT | Serving 10 Countries</title>
         <meta name="description" content="PMI IT serves clients across 10 countries in the Gulf region and beyond. Discover our global presence and successful project delivery across multiple regions." />
         <meta name="keywords" content="Gulf region, international presence, UAE, Kuwait, Qatar, Saudi Arabia, Bahrain, France, Tunisia, global IT services" />
         <link rel="canonical" href="https://it-solutions.pmi-me.net/countries" />
-        
-        {/* Open Graph */}
+
         <meta property="og:title" content="Our Regional Presence - PMI IT" />
         <meta property="og:description" content="PMI IT serves clients across 10 countries in the Gulf region and beyond. Discover our global presence and successful project delivery." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://it-solutions.pmi-me.net/countries" />
         <meta property="og:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
-        
-        {/* Twitter Card */}
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Our Regional Presence - PMI IT" />
         <meta name="twitter:description" content="PMI IT serves clients across 10 countries in the Gulf region and beyond. Discover our global presence and successful project delivery." />
         <meta name="twitter:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
       </Helmet>
-      {/* Floating Icons */}
-      <div className="floating-icons">
-        <div className="icon icon-1">🚀</div>
-        <div className="icon icon-2">💻</div>
-        <div className="icon icon-3">🌐</div>
-        <div className="icon icon-4">📱</div>
-        <div className="icon icon-5">⚡</div>
-        <div className="icon icon-6">🔧</div>
-        <div className="icon icon-7">📊</div>
-        <div className="icon icon-8">🎯</div>
-        <div className="icon icon-9">🌟</div>
-        <div className="icon icon-10">💡</div>
-        <div className="icon icon-11">🔒</div>
-        <div className="icon icon-12">📈</div>
-        <div className="icon icon-13">🛠️</div>
-        <div className="icon icon-14">🎨</div>
-        <div className="icon icon-15">🔍</div>
-        <div className="icon icon-16">📋</div>
-        <div className="icon icon-17">🎪</div>
-        <div className="icon icon-18">🔮</div>
-        <div className="icon icon-19">⚙️</div>
-        <div className="icon icon-20">🎭</div>
-        <div className="icon icon-21">🔬</div>
-        <div className="icon icon-22">🎪</div>
-        <div className="icon icon-23">🔧</div>
-        <div className="icon icon-24">📱</div>
-        <div className="icon icon-25">💻</div>
-        <div className="icon icon-26">🌐</div>
-        <div className="icon icon-27">🚀</div>
-        <div className="icon icon-28">⚡</div>
-        <div className="icon icon-29">📊</div>
-        <div className="icon icon-30">🎯</div>
-      </div>
-      
+
       <div className="countries-content">
         <div className="container">
           <div className="countries-title">
@@ -207,18 +168,18 @@ const Countries = () => {
           </div>
           <div className="countries-grid">
             {countries.map((country, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`country-card ${animatedCards.includes(index) ? 'animate' : ''}`}
-                style={{ 
+                style={{
                   '--country-color': country.color,
                   animationDelay: `${index * 0.3}s`
                 }}
               >
                 <div className="country-flag">
-                  <img 
-                    src={country.flag} 
-                    alt={`${country.name} flag`} 
+                  <img
+                    src={country.flag}
+                    alt={`${country.name} flag`}
                     className="flag-image"
                   />
                 </div>
@@ -229,7 +190,7 @@ const Countries = () => {
             ))}
           </div>
           <div className="goals-dashboard">
-            <h2>Our Completed Projects</h2>
+            <h2>Delivering Impact Across Industries</h2>
             <div className="timeline-container">
               <div className="timeline-line"></div>
               <div className="goals-timeline">
@@ -274,8 +235,8 @@ const Countries = () => {
           </div>
         </div>
       </div>
-    </div>
+    </SectionReveal>
   );
 };
 
-export default Countries; 
+export default Countries;

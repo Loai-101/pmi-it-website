@@ -1,0 +1,157 @@
+.header-banner {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #0f0d24;
+  border: none;
+}
+
+.header-banner-placeholder {
+  width: 100%;
+  min-height: clamp(120px, 18vw, 220px);
+  background:
+    linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.06) 100%),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255, 255, 255, 0.02) 0,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 12px
+    );
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-left: none;
+  border-right: none;
+}
+
+.header-banner-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.header-banner-image {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: clamp(140px, 22vw, 260px);
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.62) saturate(0.82);
+  transform: scale(1.01);
+}
+
+.header-banner-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 80% at 50% 50%, rgba(15, 13, 36, 0.08) 0%, rgba(7, 5, 26, 0.38) 55%, rgba(7, 5, 26, 0.55) 100%),
+    linear-gradient(180deg, rgba(7, 5, 26, 0.28) 0%, rgba(7, 5, 26, 0.12) 50%, rgba(7, 5, 26, 0.32) 100%);
+}
+
+.header-banner-brand {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.65rem, 1.5vw, 1.1rem);
+  padding: 0 1rem;
+  pointer-events: none;
+  line-height: 1;
+  font-size: 1rem;
+  background: none;
+}
+
+.header-banner-logo {
+  display: block;
+  width: clamp(52px, 5.5vw, 72px);
+  height: clamp(52px, 5.5vw, 72px);
+  min-width: clamp(52px, 5.5vw, 72px);
+  min-height: clamp(52px, 5.5vw, 72px);
+  border-radius: 50%;
+  object-fit: contain;
+  background: #fff;
+  padding: 3px;
+  box-shadow:
+    0 0 0 3px rgba(102, 126, 234, 0.45),
+    0 0 28px rgba(102, 126, 234, 0.55),
+    0 8px 32px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.header-banner-title {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.5rem, 2.8vw + 0.4rem, 2.5rem);
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0ff 35%, #d4c4fd 70%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5)) drop-shadow(0 3px 16px rgba(0, 0, 0, 0.6));
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .header-banner-image {
+    height: clamp(100px, 26vw, 160px);
+  }
+
+  .header-banner-logo {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .header-banner-title {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-banner-brand {
+    flex-wrap: wrap;
+    padding: 0 0.75rem;
+  }
+
+  .header-banner-title {
+    white-space: normal;
+    text-align: center;
+    font-size: clamp(1.05rem, 4.5vw, 1.35rem);
+    line-height: 1.15;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .header-banner-brand {
+    gap: 0.4rem;
+  }
+
+  .header-banner-logo {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+  }
+
+  .header-banner-title {
+    font-size: 1.15rem;
+    white-space: normal;
+    text-align: center;
+  }
+}

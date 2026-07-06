@@ -1,0 +1,63 @@
+:root {
+  --pmi-primary: #667eea;
+  --pmi-secondary: #764ba2;
+  --pmi-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --pmi-text: #0f0d24;
+  --pmi-text-muted: #5a5a72;
+  --pmi-surface: #ffffff;
+  --pmi-surface-alt: #fafbfe;
+  --pmi-border: rgba(102, 126, 234, 0.1);
+  --pmi-shadow: 0 1px 2px rgba(15, 13, 36, 0.04), 0 8px 32px rgba(102, 126, 234, 0.08);
+  --pmi-shadow-hover: 0 4px 8px rgba(15, 13, 36, 0.06), 0 24px 64px rgba(102, 126, 234, 0.16);
+  --pmi-radius: 16px;
+  --pmi-radius-lg: 24px;
+  --navbar-height: 64px;
+  --section-padding: 96px;
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height);
+}
+
+.page-section {
+  position: relative;
+  scroll-margin-top: var(--navbar-height);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --navbar-height: 58px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --navbar-height: 54px;
+  }
+
+  .container {
+    padding: 0 14px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  :root {
+    --navbar-height: 52px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+}

@@ -1,5 +1,5 @@
 .projects {
-  min-height: 100vh;
+  padding: 0 !important;
 }
 
 .projects-hero {
@@ -46,7 +46,7 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 30px;
   margin-bottom: 60px;
 }
@@ -553,7 +553,6 @@
   text-transform: uppercase;
   opacity: 0.9;
   transition: all 0.3s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Responsive Design for Company Logos */

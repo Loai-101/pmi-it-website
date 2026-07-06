@@ -1,21 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
+import SectionReveal from '../components/SectionReveal';
+import SectionTitle from '../components/SectionTitle';
 import './Services.css';
-import { FaCode, FaCogs, FaBuilding, FaMobile, FaDatabase, FaCloud, FaJava, FaShoppingCart, FaChevronLeft, FaChevronRight, FaIndustry, FaShip, FaHospital, FaCar, FaHandshake, FaUsers, FaChartLine, FaLaptopCode, FaServer, FaGlobe, FaShieldAlt, FaRocket, FaPalette, FaNetworkWired } from 'react-icons/fa';
-import { 
-  SiJavascript, SiPython, SiCplusplus, SiPhp, SiRuby, SiGo, SiRust, SiSwift, SiKotlin, SiReact, SiAngular, SiVuedotjs, SiNodedotjs, SiDjango, SiLaravel, SiSpring, SiDotnet, SiMongodb, SiPostgresql, SiMysql, SiRedis, SiDocker, SiKubernetes, SiGooglecloud, SiFirebase, SiFlutter, SiIonic, SiOdoo, SiWordpress, SiShopify, SiMagento, SiPrestashop
-} from 'react-icons/si';
+import { FaCode, FaCogs, FaBuilding, FaShoppingCart, FaIndustry, FaShip, FaHospital, FaCar, FaHandshake, FaUsers, FaChartLine, FaLaptopCode, FaServer, FaGlobe, FaShieldAlt, FaRocket, FaPalette, FaNetworkWired } from 'react-icons/fa';
+import { SiOdoo } from 'react-icons/si';
+import { getWhatsAppUrl } from '../data/contactInfo';
 
 const Services = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [selectedService, setSelectedService] = useState(null);
 
   const handleWhatsAppClick = (serviceName) => {
-    const phoneNumber = '+1234567890'; // Replace with your actual WhatsApp number
     const message = `Hi! I'm interested in your ${serviceName} service. Can you provide more information?`;
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(getWhatsAppUrl(message), '_blank', 'noopener,noreferrer');
   };
 
   const handleServiceClick = (service) => {
@@ -24,104 +21,6 @@ const Services = () => {
 
   const closeServiceDetails = () => {
     setSelectedService(null);
-  };
-
-  const technologies = {
-    programmingLanguages: [
-      { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E' },
-      { name: 'Python', icon: <SiPython />, color: '#3776AB' },
-      { name: 'Java', icon: <FaJava />, color: '#ED8B00' },
-      { name: 'C++', icon: <SiCplusplus />, color: '#00599C' },
-      { name: 'C#', icon: <SiDotnet />, color: '#512BD4' },
-      { name: 'PHP', icon: <SiPhp />, color: '#777BB4' },
-      { name: 'Ruby', icon: <SiRuby />, color: '#CC342D' },
-      { name: 'Go', icon: <SiGo />, color: '#00ADD8' },
-      { name: 'Rust', icon: <SiRust />, color: '#000000' },
-      { name: 'Swift', icon: <SiSwift />, color: '#FA7343' },
-      { name: 'Kotlin', icon: <SiKotlin />, color: '#7F52FF' }
-    ],
-    frameworks: [
-      { name: 'React', icon: <SiReact />, color: '#61DAFB' },
-      { name: 'Angular', icon: <SiAngular />, color: '#DD0031' },
-      { name: 'Vue.js', icon: <SiVuedotjs />, color: '#4FC08D' },
-      { name: 'Node.js', icon: <SiNodedotjs />, color: '#339933' },
-      { name: 'Django', icon: <SiDjango />, color: '#092E20' },
-      { name: 'Laravel', icon: <SiLaravel />, color: '#FF2D20' },
-      { name: 'Spring', icon: <SiSpring />, color: '#6DB33F' },
-      { name: '.NET', icon: <SiDotnet />, color: '#512BD4' }
-    ],
-    databases: [
-      { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248' },
-      { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#336791' },
-      { name: 'MySQL', icon: <SiMysql />, color: '#4479A1' },
-      { name: 'Redis', icon: <SiRedis />, color: '#DC382D' }
-    ],
-    mobileDevelopment: [
-      { name: 'React Native', icon: <div style={{fontSize: '2.5rem', color: '#61DAFB'}}>📱</div>, color: '#61DAFB' },
-      { name: 'Flutter', icon: <SiFlutter />, color: '#02569B' },
-      { name: 'Ionic', icon: <SiIonic />, color: '#3880FF' },
-      { name: 'Cordova', icon: <FaMobile />, color: '#E8E8E8' },
-      { name: 'Swift', icon: <SiSwift />, color: '#FA7343' },
-      { name: 'Kotlin', icon: <SiKotlin />, color: '#7F52FF' }
-    ],
-    ecommerce: [
-      { name: 'Odoo', icon: <SiOdoo />, color: '#714B67' },
-      { name: 'WordPress', icon: <SiWordpress />, color: '#21759B' },
-      { name: 'Shopify', icon: <SiShopify />, color: '#7AB55C' },
-      { name: 'Magento', icon: <SiMagento />, color: '#EE6723' },
-      { name: 'OpenCart', icon: <FaShoppingCart />, color: '#2D5C88' },
-      { name: 'PrestaShop', icon: <SiPrestashop />, color: '#DF0067' }
-    ],
-    cloudDevOps: [
-      { name: 'Docker', icon: <SiDocker />, color: '#2496ED' },
-      { name: 'Kubernetes', icon: <SiKubernetes />, color: '#326CE5' },
-      { name: 'AWS', icon: <FaCloud />, color: '#FF9900' },
-      { name: 'Google Cloud', icon: <SiGooglecloud />, color: '#4285F4' },
-      { name: 'Azure', icon: <FaCloud />, color: '#0078D4' },
-      { name: 'Firebase', icon: <SiFirebase />, color: '#FFCA28' }
-    ]
-  };
-
-  const technologyCategories = [
-    { key: 'programmingLanguages', title: 'Programming Languages', icon: <FaCode /> },
-    { key: 'frameworks', title: 'Frameworks & Libraries', icon: <FaCogs /> },
-    { key: 'mobileDevelopment', title: 'Mobile Development', icon: <FaMobile /> },
-    { key: 'ecommerce', title: 'E-commerce & CMS', icon: <FaDatabase /> },
-    { key: 'databases', title: 'Databases', icon: <FaDatabase /> },
-    { key: 'cloudDevOps', title: 'Cloud & DevOps', icon: <FaCloud /> }
-  ];
-
-  const nextSlide = () => {
-    setCurrentSlide(current => 
-      current === technologyCategories.length - 1 ? 0 : current + 1
-    );
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide(current => 
-      current === 0 ? technologyCategories.length - 1 : current - 1
-    );
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
-
-  // Auto-slide functionality
-  useEffect(() => {
-    if (!isAutoPlaying) return;
-
-    const timer = setInterval(() => {
-      nextSlide();
-    }, 4000);
-
-    return () => clearInterval(timer);
-  }, [isAutoPlaying, currentSlide]);
-
-  const handleSliderInteraction = () => {
-    setIsAutoPlaying(false);
-    // Resume auto-play after 10 seconds of inactivity
-    setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
   const services = [
@@ -347,35 +246,14 @@ const Services = () => {
   ];
 
   return (
-    <div className="services">
-      <Helmet>
-        <title>IT Services & Solutions - PMI IT | Custom Software Development</title>
-        <meta name="description" content="Comprehensive IT services including custom software development, Odoo ERP implementation, mobile app development, web applications, and digital transformation solutions." />
-        <meta name="keywords" content="custom software development, Odoo ERP, mobile apps, web development, digital transformation, IT consulting, software solutions" />
-        <link rel="canonical" href="https://it-solutions.pmi-me.net/services" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="IT Services & Solutions - PMI IT" />
-        <meta property="og:description" content="Comprehensive IT services including custom software development, Odoo ERP implementation, mobile app development, and digital transformation solutions." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://it-solutions.pmi-me.net/services" />
-        <meta property="og:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="IT Services & Solutions - PMI IT" />
-        <meta name="twitter:description" content="Comprehensive IT services including custom software development, Odoo ERP implementation, mobile app development, and digital transformation solutions." />
-        <meta name="twitter:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
-      </Helmet>
+    <SectionReveal id="services" className="services">
       {/* Detailed Services Section */}
       <div className="detailed-services-section">
         <div className="container">
-          <div className="section-header">
-            <h1>Our Core Services</h1>
-            <p className="section-subtitle">
-              Comprehensive technology solutions tailored to your industry and business needs
-            </p>
-          </div>
+          <SectionTitle
+            as="h1"
+            title="Solutions Designed for Growth"
+          />
           
           <div className="detailed-services-grid">
             {detailedServices.map((service, index) => (
@@ -397,7 +275,7 @@ const Services = () => {
           </div>
 
           {/* Service Details Modal */}
-          {selectedService && (
+          {selectedService && createPortal(
             <div className="service-details-modal" onClick={closeServiceDetails}>
               <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <button className="close-btn" onClick={closeServiceDetails}>×</button>
@@ -464,7 +342,8 @@ const Services = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </div>,
+            document.body
           )}
         </div>
       </div>
@@ -519,77 +398,7 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Technology Showcase Section */}
-      <div className="technology-showcase">
-        <div className="container">
-          <div className="showcase-header">
-            <h2>🛠️ Technologies We Master</h2>
-            <p>Comprehensive expertise across all major programming languages, frameworks, and platforms</p>
-          </div>
-
-          <div className="technology-slider">
-            <div className="slide-counter">
-              {currentSlide + 1} / {technologyCategories.length}
-            </div>
-            <div 
-              className="technology-slider-track"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {technologyCategories.map((category, index) => (
-                <div key={category.key} className="tech-category">
-                  <h3>{category.icon} {category.title}</h3>
-                  <div className="tech-grid">
-                    {technologies[category.key].map((tech, techIndex) => (
-                      <div key={techIndex} className="tech-item" style={{ '--tech-color': tech.color }}>
-                        <div className="tech-icon">{tech.icon}</div>
-                        <span className="tech-name">{tech.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Navigation Arrows - Matching Home Page Style */}
-            <button 
-              className="slider-nav prev"
-              onClick={() => {
-                prevSlide();
-                handleSliderInteraction();
-              }}
-              disabled={currentSlide === 0}
-            >
-              <FaChevronLeft />
-            </button>
-            
-            <button 
-              className="slider-nav next"
-              onClick={() => {
-                nextSlide();
-                handleSliderInteraction();
-              }}
-              disabled={currentSlide === technologyCategories.length - 1}
-            >
-              <FaChevronRight />
-            </button>
-
-            {/* Dots Indicator - Matching Home Page Style */}
-            <div className="slider-dots">
-              {technologyCategories.map((_, index) => (
-                <button
-                  key={index}
-                  className={`slider-dot ${currentSlide === index ? 'active' : ''}`}
-                  onClick={() => {
-                    goToSlide(index);
-                    handleSliderInteraction();
-                  }}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </SectionReveal>
   );
 };
 

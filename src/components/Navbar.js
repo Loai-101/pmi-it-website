@@ -1,136 +1,65 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes, FaProjectDiagram, FaEnvelope, FaWhatsapp, FaInstagram, FaPhone, FaUsers } from 'react-icons/fa';
-import { AiFillHome } from 'react-icons/ai';
-import { MdMiscellaneousServices } from 'react-icons/md';
-import { GiFlyingFlag } from 'react-icons/gi';
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { useActiveSection } from '../hooks/useActiveSection';
+import { scrollToSection } from '../utils/scrollToSection';
 import './Navbar.css';
+
+const NAV_ITEMS = [
+  { id: 'home', label: 'Home' },
+  { id: 'services', label: 'Services' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'countries', label: 'Countries' },
+  { id: 'teams', label: 'Team' },
+  { id: 'contact', label: 'Contact' },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const activeSection = useActiveSection();
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  const closeMenu = () => {
+  const handleNavClick = (sectionId) => {
+    scrollToSection(sectionId);
     setIsOpen(false);
   };
 
-  const handleEmailClick = () => {
-    window.open('mailto:info@pmi-it.com', '_blank');
-  };
-
-  const handleWhatsAppClick = () => {
-    const phoneNumber = '+97313676757';
-    const message = 'Hi! I\'m interested in your services. Can you provide more information?';
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
-
-  const handleInstagramClick = () => {
-    window.open('https://www.instagram.com/pmi_it?igsh=MW9ydjRtdWRwMWgweQ==', '_blank');
-  };
-
-  const handlePhoneClick = () => {
-    window.open('tel:+97313676757', '_blank');
+  const getActiveClass = (sectionId) => {
+    if (sectionId === 'home') {
+      return activeSection === 'home' ? 'nav-link active' : 'nav-link';
+    }
+    return activeSection === sectionId ? 'nav-link active' : 'nav-link';
   };
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`} aria-label="Main navigation">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo" onClick={closeMenu}>
-          <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" alt="PMI IT Logo" className="logo-img" />
-          <span className="logo-text">IT Solution</span>
-        </Link>
-        
-        <div className="menu-icon" onClick={toggleMenu}>
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </div>
-        
-        <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
-          <li className="nav-item">
-            <Link 
-              to="/" 
-              className={location.pathname === '/' ? 'nav-link active' : 'nav-link'}
-              onClick={closeMenu}
-            >
-              <AiFillHome className="nav-icon" /> Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link 
-              to="/services" 
-              className={location.pathname === '/services' ? 'nav-link active' : 'nav-link'}
-              onClick={closeMenu}
-            >
-              <MdMiscellaneousServices className="nav-icon" /> Services
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link 
-              to="/projects" 
-              className={location.pathname === '/projects' ? 'nav-link active' : 'nav-link'}
-              onClick={closeMenu}
-            >
-              <FaProjectDiagram className="nav-icon" /> Projects
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link 
-              to="/countries" 
-              className={location.pathname === '/countries' ? 'nav-link active' : 'nav-link'}
-              onClick={closeMenu}
-            >
-              <GiFlyingFlag className="nav-icon" /> Countries
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link 
-              to="/teams" 
-              className={location.pathname === '/teams' ? 'nav-link active' : 'nav-link'}
-              onClick={closeMenu}
-            >
-              <FaUsers className="nav-icon" /> Team
-            </Link>
-          </li>
-        </ul>
+        <button type="button" className="menu-icon" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+          {isOpen ? <X size={22} strokeWidth={2} /> : <Menu size={22} strokeWidth={2} />}
+        </button>
 
-        {/* Contact Icons */}
-        <div className="contact-icons">
-          <button 
-            className="contact-icon phone-icon" 
-            onClick={handlePhoneClick}
-            title="Call us at +97313676757"
-          >
-            <FaPhone />
-          </button>
-          <button 
-            className="contact-icon email-icon" 
-            onClick={handleEmailClick}
-            title="Email us at info@pmi-it.com"
-          >
-            <FaEnvelope />
-          </button>
-          <button 
-            className="contact-icon whatsapp-icon" 
-            onClick={handleWhatsAppClick}
-            title="WhatsApp us at +97313676757"
-          >
-            <FaWhatsapp />
-          </button>
-          <button 
-            className="contact-icon instagram-icon" 
-            onClick={handleInstagramClick}
-            title="Follow us on Instagram @pmi_it"
-          >
-            <FaInstagram />
-          </button>
-        </div>
+        <ul className={isOpen ? 'nav-menu active' : 'nav-menu'}>
+          {NAV_ITEMS.map((item) => (
+            <li key={item.id} className="nav-item">
+              <button
+                type="button"
+                className={getActiveClass(item.id)}
+                onClick={() => handleNavClick(item.id)}
+              >
+                {item.label}
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   );
 };
 
-export default Navbar; 
+export default Navbar;

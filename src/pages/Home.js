@@ -1,253 +1,75 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import { IMAGES } from '../utils/imagePaths';
+import React from 'react';
+import SectionReveal from '../components/SectionReveal';
+import HeroCoverflowSlider from '../components/HeroCoverflowSlider';
+import TechnologiesMarquee from '../components/TechnologiesMarquee';
+import AddValueQuote from '../components/AddValueQuote';
+import PartnersMarquee from '../components/PartnersMarquee';
+import CompletedProjectsDashboard from '../components/CompletedProjectsDashboard';
 import './Home.css';
 
 const Home = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
   // Sample slider data - you can replace with your actual images and titles
   const slides = [
     {
       id: 1,
       image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551864/slider1_kpddqi.png",
-      title: 'We Build Systems. You Build Success.',
+      title: 'Building Technology That Drives Success',
       subtitle: 'From custom software to complete ERP platforms.',
       description: 'We deliver comprehensive software solutions that drive your business success and operational excellence.'
     },
     {
       id: 2,
       image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551865/slider2_bt8bap.png",
-      title: 'Custom Software in Every Language, for Every Business.',
+      title: 'Software Built Around Your Business',
       subtitle: 'Node, Python, PHP, Java, Flutter — we code your way.',
       description: 'Expert development in multiple programming languages to create solutions that perfectly fit your business needs.'
     },
     {
       id: 3,
       image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551866/slider3_q6lpse.png",
-      title: 'Odoo Experts. Customized to Fit Your Business.',
+      title: 'Transforming Operations with Odoo',
       subtitle: 'Tailored ERP systems that grow with you.',
       description: 'Specialized Odoo implementation and customization services designed to scale with your business growth.'
     },
     {
       id: 4,
       image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551867/slider4_hguueu.png",
-      title: 'Mobile App Development That Moves With You.',
+      title: 'Mobile Experiences Without Limits',
       subtitle: 'iOS, Android & cross-platform apps — fast, scalable, secure.',
       description: 'Native and cross-platform mobile applications that keep pace with your business and user needs.'
     },
     {
       id: 5,
       image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551868/slider5_yt9hl1.png",
-      title: 'From Idea to Execution — We Build Your Vision.',
+      title: 'From Vision to Digital Reality',
       subtitle: 'End-to-end development for modern enterprises.',
       description: 'Complete development lifecycle from concept to deployment, turning your ideas into powerful business solutions.'
     },
     {
       id: 6,
       image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551869/slider6_ufcimj.jpg",
-      title: 'Digital Solutions Without Limits.',
+      title: 'Technology Without Boundaries',
       subtitle: 'Web, mobile, desktop, ERP — all under one roof.',
       description: 'Comprehensive digital solutions across all platforms and technologies, all delivered by one trusted partner.'
     },
     {
       id: 7,
       image: "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751552025/slider7_we6vna.jpg",
-      title: 'PMI IT: Your Technology Partner in Innovation.',
+      title: 'Engineering Digital Excellence',
       subtitle: 'Reliable systems. Smarter operations.',
       description: 'Your trusted technology partner delivering innovative solutions that make your operations smarter and more efficient.'
     }
   ];
 
-  
-
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide(current => (current === slides.length - 1 ? 0 : current + 1));
-  }, [slides.length]);
-
-  const prevSlide = () => {
-    setCurrentSlide(current => (current === 0 ? slides.length - 1 : current - 1));
-  };
-
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
-
-  // Auto-slide every 5 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide();
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [nextSlide]);
-
   return (
-    <div className="home">
-      <Helmet>
-        <title>PMI IT - Professional IT Services & Solutions | Gulf Region</title>
-        <meta name="description" content="PMI IT delivers comprehensive software solutions, custom development, Odoo ERP systems, and mobile apps. Your trusted technology partner in the Gulf Region for digital transformation." />
-        <meta name="keywords" content="IT services, software development, Odoo ERP, mobile apps, digital transformation, Gulf Region, custom software" />
-        <link rel="canonical" href="https://it-solutions.pmi-me.net/" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="PMI IT - Professional IT Services & Solutions" />
-        <meta property="og:description" content="Comprehensive software solutions, custom development, Odoo ERP systems, and mobile apps. Your trusted technology partner in the Gulf Region." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://it-solutions.pmi-me.net/" />
-        <meta property="og:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
-        <meta property="og:site_name" content="PMI IT" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="PMI IT - Professional IT Services & Solutions" />
-        <meta name="twitter:description" content="Comprehensive software solutions, custom development, Odoo ERP systems, and mobile apps. Your trusted technology partner in the Gulf Region." />
-        <meta name="twitter:image" content="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" />
-        
-        {/* Organization Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "PMI IT",
-            "url": "https://it-solutions.pmi-me.net",
-            "logo": "https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png",
-            "description": "Professional IT Services and Solutions in the Gulf Region",
-            "address": {
-              "@type": "PostalAddress",
-              "addressRegion": "Gulf Region"
-            },
-            "sameAs": []
-          })}
-        </script>
-      </Helmet>
-      {/* Floating Icons - Fixed Position */}
-      <div className="floating-icons">
-        <div className="icon icon-1">🚀</div>
-        <div className="icon icon-2">💻</div>
-        <div className="icon icon-3">🌐</div>
-        <div className="icon icon-4">📱</div>
-        <div className="icon icon-5">⚡</div>
-        <div className="icon icon-6">🔧</div>
-        <div className="icon icon-7">📊</div>
-        <div className="icon icon-8">🎯</div>
-        <div className="icon icon-9">🌟</div>
-        <div className="icon icon-10">💡</div>
-        <div className="icon icon-11">🔒</div>
-        <div className="icon icon-12">📈</div>
-        <div className="icon icon-13">🛠️</div>
-        <div className="icon icon-14">🎨</div>
-        <div className="icon icon-15">🔍</div>
-        <div className="icon icon-16">📋</div>
-        <div className="icon icon-17">🎪</div>
-        <div className="icon icon-18">🔮</div>
-        <div className="icon icon-19">⚙️</div>
-        <div className="icon icon-20">🎭</div>
-        <div className="icon icon-21">🔬</div>
-        <div className="icon icon-22">🎪</div>
-        <div className="icon icon-23">🔧</div>
-        <div className="icon icon-24">📱</div>
-        <div className="icon icon-25">💻</div>
-        <div className="icon icon-26">🌐</div>
-        <div className="icon icon-27">🚀</div>
-        <div className="icon icon-28">⚡</div>
-        <div className="icon icon-29">📊</div>
-        <div className="icon icon-30">🎯</div>
-      </div>
-
-      {/* Hero Slider Section */}
-      <section className="hero-slider">
-        <div className="slider-container">
-          {slides.map((slide, index) => (
-            <div
-              key={slide.id}
-              className={`slide ${index === currentSlide ? 'active' : ''}`}
-              style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${slide.image})`
-              }}
-            >
-              {index === currentSlide && (
-                <div className="slide-content" key={currentSlide}>
-                  <div className="slide-logo">
-                    <img
-                      alt="PMI IT Logo"
-                      className="pmi-logo"
-                      src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png"
-                    />
-                  </div>
-                  <h1 className="slide-title">{slide.title}</h1>
-                  <h2 className="slide-subtitle">{slide.subtitle}</h2>
-                  <p className="slide-description">{slide.description}</p>
-                  <a
-                    href="https://wa.me/97313676757"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="cta-button"
-                  >
-                    Get Started
-                  </a>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Navigation Arrows */}
-        <button className="slider-nav prev" onClick={prevSlide}>
-          <FaChevronLeft />
-        </button>
-        <button className="slider-nav next" onClick={nextSlide}>
-          <FaChevronRight />
-        </button>
-
-        {/* Dots Indicator */}
-        <div className="slider-dots">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              className={`dot ${index === currentSlide ? 'active' : ''}`}
-              onClick={() => goToSlide(index)}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* About Title with Logos */}
-      <div className="container" style={{ marginTop: '40px', marginBottom: '10px' }}>
-        <div className="about-logos-section">
-          <div className="about-logo about-logo-left">
-            <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" alt="PMI IT Logo" className="about-logo-img" />
-          </div>
-          <h2 className="section-title" style={{ textAlign: 'center', fontSize: '2.4rem', fontWeight: 700, margin: 0, color: '#667eea', letterSpacing: '1px' }}>About</h2>
-          <div className="about-logo about-logo-right">
-            <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751551231/futurecities-logo_qgotzj.jpg" alt="FutureCitiesCouncil Logo" className="about-logo-img" />
-          </div>
-        </div>
-      </div>
-
-      {/* About Content Section */}
-      <section className="about-content-section">
-        <div className="container">
-          <div className="about-content">
-            <p>
-              <strong>PMI IT</strong> is proud to announce the formation of a strategic technology alliance with <strong>FutureCitiesCouncil Inc.</strong>, a premier Canadian technology firm established in 2019, renowned for its expertise in developing intelligent systems and advanced IT solutions.
-            </p>
-            <p>
-              <strong>FutureCitiesCouncil Inc.</strong> has consistently delivered cutting-edge technology services across diverse industries in both Arab and Western markets, building deep expertise and a global outlook in addressing complex digital needs.
-            </p>
-            <p>
-              This partnership is designed to merge the capabilities and knowledge of both organizations to offer state-of-the-art services, including comprehensive system architecture and software development, enterprise-level digital transformation, high-level IT consulting, AI-powered solutions, and intelligent infrastructure customized for sectors like healthcare, education, and e-commerce.
-            </p>
-            <p>
-              Together, <strong>PMI IT</strong> and <strong>FutureCitiesCouncil Inc.</strong> aim to drive technological innovation, enhance operational performance, and contribute to building a smarter, more efficient digital future for clients across the globe.
-            </p>
-          </div>
-        </div>
-      </section>
-    </div>
+    <SectionReveal id="home" className="home section-hero" disableAnimation>
+      <HeroCoverflowSlider slides={slides} />
+      <TechnologiesMarquee />
+      <AddValueQuote />
+      <PartnersMarquee />
+      <CompletedProjectsDashboard />
+    </SectionReveal>
   );
 };
 
-export default Home; 
+export default Home;
