@@ -12,10 +12,10 @@ const STATS = [
   },
   {
     key: 'countries',
-    target: 7,
+    target: 9,
     suffix: '',
     label: 'Countries Covered',
-    description: 'Successfully delivered projects in all 7 countries we serve',
+    description: 'Successfully delivered projects in all 9 countries we serve',
   },
   {
     key: 'clients',
