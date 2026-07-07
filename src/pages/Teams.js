@@ -240,7 +240,7 @@ const Team = () => {
           <div className="join-team-section">
             <div className="join-content">
               <SectionTitle
-                title="Build the Future With Us"
+                title="Build the Future With PMI IT"
                 className="section-title-block--join"
               />
               <p>
