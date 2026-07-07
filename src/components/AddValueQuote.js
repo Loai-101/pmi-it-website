@@ -5,8 +5,11 @@ import './AddValueQuote.css';
 const FULL_TEXT =
   'Add Value is more than our philosophy. It is the foundation of every solution we design, every system we build, and every partnership we create. Through innovation, expertise, and technology, we help organizations achieve measurable growth and lasting success.';
 
-const HIGHLIGHT_TEXT = 'Add Value';
-const HIGHLIGHT_LENGTH = HIGHLIGHT_TEXT.length;
+const TYPEWRITER_PREFIX = 'Add Value ';
+const TYPEWRITER_TEXT = FULL_TEXT.startsWith(TYPEWRITER_PREFIX)
+  ? FULL_TEXT.slice(TYPEWRITER_PREFIX.length).replace(/^i/, 'I')
+  : FULL_TEXT;
+
 const BASE_CHAR_DELAY = 42;
 
 const getCharDelay = (char) => {
@@ -23,20 +26,9 @@ const getCharDelay = (char) => {
   return delay;
 };
 
-const renderTypedContent = (text) => {
-  if (text.length <= HIGHLIGHT_LENGTH) {
-    return <span className="add-value-highlight">{text}</span>;
-  }
-
-  return (
-    <>
-      <span className="add-value-highlight">{text.slice(0, HIGHLIGHT_LENGTH)}</span>
-      {text.length > HIGHLIGHT_LENGTH && (
-        <span className="add-value-typewriter-body">{text.slice(HIGHLIGHT_LENGTH)}</span>
-      )}
-    </>
-  );
-};
+const renderTypedContent = (text) => (
+  <span className="add-value-typewriter-body">{text}</span>
+);
 
 const AddValueQuote = () => {
   const sectionRef = useRef(null);
@@ -47,18 +39,24 @@ const AddValueQuote = () => {
   const [charIndex, setCharIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
-  const typedText = FULL_TEXT.slice(0, charIndex);
+  const typedText = TYPEWRITER_TEXT.slice(0, charIndex);
 
   const scheduleNextChar = useCallback((index) => {
-    if (index >= FULL_TEXT.length) {
+    if (index >= TYPEWRITER_TEXT.length) {
       setIsComplete(true);
       return;
     }
 
-    const delay = getCharDelay(FULL_TEXT[index - 1] ?? '');
+    const delay = getCharDelay(TYPEWRITER_TEXT[index - 1] ?? '');
     typingTimer.current = window.setTimeout(() => {
       setCharIndex(index + 1);
     }, delay);
+  }, []);
+
+  const revealSection = useCallback(() => {
+    if (hasStarted.current) return;
+    hasStarted.current = true;
+    setHasEnteredView(true);
   }, []);
 
   useEffect(() => {
@@ -67,24 +65,30 @@ const AddValueQuote = () => {
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (prefersReducedMotion) {
-      setCharIndex(FULL_TEXT.length);
-      setIsComplete(true);
-      return undefined;
+    const rect = section.getBoundingClientRect();
+    const isAlreadyVisible = rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
+
+    if (prefersReducedMotion || isAlreadyVisible) {
+      revealSection();
+      if (prefersReducedMotion) {
+        setCharIndex(TYPEWRITER_TEXT.length);
+        setIsComplete(true);
+      }
+      if (prefersReducedMotion) return undefined;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting || hasStarted.current) return;
-        hasStarted.current = true;
-        setHasEnteredView(true);
+        if (entry.isIntersecting) {
+          revealSection();
+        }
       },
-      { threshold: 0.35, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
     );
 
     observer.observe(section);
     return () => observer.disconnect();
-  }, []);
+  }, [revealSection]);
 
   useEffect(() => {
     if (!hasEnteredView || isComplete) return undefined;
@@ -96,7 +100,7 @@ const AddValueQuote = () => {
       };
     }
 
-    if (charIndex < FULL_TEXT.length) {
+    if (charIndex < TYPEWRITER_TEXT.length) {
       scheduleNextChar(charIndex);
     } else {
       setIsComplete(true);
@@ -111,17 +115,28 @@ const AddValueQuote = () => {
     <section
       ref={sectionRef}
       className="add-value-quote"
-      aria-label="Add Value quote"
+      aria-label="Adding Value quote"
     >
       <div className="add-value-quote-bg" aria-hidden="true" />
 
       <div className="add-value-quote-inner">
+        <motion.p
+          className="add-value-title"
+          role="heading"
+          aria-level="2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={hasEnteredView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
+          Adding Value
+        </motion.p>
+
         <motion.span
           className="quote-mark quote-mark-open"
           aria-hidden="true"
           initial={{ opacity: 0, y: 12 }}
           animate={hasEnteredView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
         >
           &ldquo;
         </motion.span>

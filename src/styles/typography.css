@@ -105,6 +105,23 @@ h6 {
   letter-spacing: var(--tracking-tight);
 }
 
+.add-value-title {
+  font-family:
+    'Brittany Signature',
+    'Bromello',
+    'Signatura Monoline',
+    'Amsterdam Signature',
+    'MonteCarlo',
+    'Mrs Saint Delafield',
+    'Allura',
+    'Great Vibes',
+    cursive !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.03em !important;
+  line-height: 0.95 !important;
+  text-transform: none !important;
+}
+
 /* Hero */
 .slide-title {
   font-size: var(--text-hero) !important;

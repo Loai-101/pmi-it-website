@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=MonteCarlo&family=Mrs+Saint+Delafield&display=swap');
+
 /* ================================================================
    Add Value — premium quote section + typewriter
    ================================================================ */
-
 .add-value-quote {
   position: relative;
   width: 100%;
@@ -47,6 +48,40 @@
   padding-right: clamp(0.5rem, 4vw, 2rem);
 }
 
+.add-value-title {
+  display: block;
+  margin: 0 0 clamp(0.75rem, 2vw, 1.25rem);
+  padding: 0;
+  border: none;
+  font-family:
+    'Brittany Signature',
+    'Bromello',
+    'Signatura Monoline',
+    'Amsterdam Signature',
+    'MonteCarlo',
+    'Mrs Saint Delafield',
+    'Allura',
+    'Great Vibes',
+    cursive !important;
+  font-size: clamp(5rem, 6vw + 2rem, 7.5rem) !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  line-height: 0.95 !important;
+  letter-spacing: 0.03em !important;
+  text-align: center;
+  text-transform: none !important;
+  color: #f3e8ff !important;
+  -webkit-text-fill-color: #f3e8ff !important;
+  background: none !important;
+  transform: rotate(-4deg);
+  transform-origin: center center;
+  text-shadow:
+    0 2px 28px rgba(167, 139, 250, 0.55),
+    0 0 60px rgba(102, 126, 234, 0.25);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  white-space: nowrap;
+}
 .add-value-text {
   margin: 0;
   padding: 0;
@@ -68,23 +103,6 @@
 
 .add-value-typewriter-content {
   display: inline;
-}
-
-.add-value-highlight {
-  display: block;
-  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.85rem, 4vw + 0.4rem, 2.85rem);
-  font-weight: 700;
-  font-style: italic;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin: 0 0 0.5rem;
-  text-transform: uppercase;
-  background: linear-gradient(135deg, #c4b5fd 0%, #667eea 35%, #a78bfa 65%, #764ba2 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 24px rgba(102, 126, 234, 0.25));
 }
 
 .add-value-typewriter-body {
@@ -144,15 +162,17 @@
     padding: clamp(2.75rem, 8vw, 4rem) 1.25rem;
   }
 
+  .add-value-title {
+    font-size: clamp(3.75rem, 12vw, 5.5rem);
+    transform: rotate(-3deg);
+    margin-bottom: clamp(0.65rem, 2.5vw, 1rem);
+  }
+
   .add-value-typewriter {
     font-size: clamp(1rem, 0.5vw + 0.9rem, 1.15rem);
     line-height: 1.8;
     letter-spacing: 0.02em;
     min-height: 7.5em;
-  }
-
-  .add-value-highlight {
-    font-size: clamp(1.5rem, 6vw, 2.25rem);
   }
 
   .add-value-author {
@@ -177,18 +197,23 @@
     font-size: 2.75rem;
   }
 
+  .add-value-title {
+    font-size: clamp(3rem, 16vw, 4.5rem);
+    transform: rotate(-2.5deg);
+  }
+
   .add-value-typewriter {
     min-height: auto;
     font-size: clamp(0.95rem, 3.8vw, 1.1rem);
     line-height: 1.75;
   }
-
-  .add-value-highlight {
-    font-size: clamp(1.5rem, 6vw, 2rem);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .add-value-title {
+    transform: rotate(-3deg);
+  }
+
   .typewriter-cursor {
     display: none;
   }
