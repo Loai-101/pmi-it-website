@@ -1,14 +1,11 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import '@fontsource/allura/400.css';
+import '@fontsource/great-vibes/400.css';
 import './AddValueQuote.css';
 
 const FULL_TEXT =
   'Add Value is more than our philosophy. It is the foundation of every solution we design, every system we build, and every partnership we create. Through innovation, expertise, and technology, we help organizations achieve measurable growth and lasting success.';
-
-const TYPEWRITER_PREFIX = 'Add Value ';
-const TYPEWRITER_TEXT = FULL_TEXT.startsWith(TYPEWRITER_PREFIX)
-  ? FULL_TEXT.slice(TYPEWRITER_PREFIX.length).replace(/^i/, 'I')
-  : FULL_TEXT;
 
 const BASE_CHAR_DELAY = 42;
 
@@ -39,24 +36,18 @@ const AddValueQuote = () => {
   const [charIndex, setCharIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
-  const typedText = TYPEWRITER_TEXT.slice(0, charIndex);
+  const typedText = FULL_TEXT.slice(0, charIndex);
 
   const scheduleNextChar = useCallback((index) => {
-    if (index >= TYPEWRITER_TEXT.length) {
+    if (index >= FULL_TEXT.length) {
       setIsComplete(true);
       return;
     }
 
-    const delay = getCharDelay(TYPEWRITER_TEXT[index - 1] ?? '');
+    const delay = getCharDelay(FULL_TEXT[index - 1] ?? '');
     typingTimer.current = window.setTimeout(() => {
       setCharIndex(index + 1);
     }, delay);
-  }, []);
-
-  const revealSection = useCallback(() => {
-    if (hasStarted.current) return;
-    hasStarted.current = true;
-    setHasEnteredView(true);
   }, []);
 
   useEffect(() => {
@@ -65,30 +56,26 @@ const AddValueQuote = () => {
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const rect = section.getBoundingClientRect();
-    const isAlreadyVisible = rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
-
-    if (prefersReducedMotion || isAlreadyVisible) {
-      revealSection();
-      if (prefersReducedMotion) {
-        setCharIndex(TYPEWRITER_TEXT.length);
-        setIsComplete(true);
-      }
-      if (prefersReducedMotion) return undefined;
+    if (prefersReducedMotion) {
+      hasStarted.current = true;
+      setHasEnteredView(true);
+      setCharIndex(FULL_TEXT.length);
+      setIsComplete(true);
+      return undefined;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          revealSection();
-        }
+        if (!entry.isIntersecting || hasStarted.current) return;
+        hasStarted.current = true;
+        setHasEnteredView(true);
       },
-      { threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
+      { threshold: 0.35, rootMargin: '0px 0px -40px 0px' }
     );
 
     observer.observe(section);
     return () => observer.disconnect();
-  }, [revealSection]);
+  }, []);
 
   useEffect(() => {
     if (!hasEnteredView || isComplete) return undefined;
@@ -100,7 +87,7 @@ const AddValueQuote = () => {
       };
     }
 
-    if (charIndex < TYPEWRITER_TEXT.length) {
+    if (charIndex < FULL_TEXT.length) {
       scheduleNextChar(charIndex);
     } else {
       setIsComplete(true);
@@ -115,28 +102,26 @@ const AddValueQuote = () => {
     <section
       ref={sectionRef}
       className="add-value-quote"
-      aria-label="Adding Value quote"
+      aria-label="Add Value quote"
     >
       <div className="add-value-quote-bg" aria-hidden="true" />
 
       <div className="add-value-quote-inner">
-        <motion.p
+        <motion.h2
           className="add-value-title"
-          role="heading"
-          aria-level="2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={hasEnteredView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, y: 24 }}
+          animate={hasEnteredView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
         >
           Adding Value
-        </motion.p>
+        </motion.h2>
 
         <motion.span
           className="quote-mark quote-mark-open"
           aria-hidden="true"
           initial={{ opacity: 0, y: 12 }}
           animate={hasEnteredView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         >
           &ldquo;
         </motion.span>

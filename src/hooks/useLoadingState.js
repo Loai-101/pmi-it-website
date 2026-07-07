@@ -107,16 +107,72 @@ export const usePageLoading = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const handleLoad = () => {
-      setIsLoading(false);
+    let mounted = true;
+    const startTime = Date.now();
+    const MIN_DISPLAY_MS = 2000;
+
+    const assets = [
+      'https://res.cloudinary.com/dvybb2xnc/image/upload/v1783333390/ChatGPT_Image_Jul_6_2026_01_21_52_PM_iuw4k7.png',
+      `${process.env.PUBLIC_URL}/pmi-it-logo.png`,
+      'https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png',
+    ];
+
+    let assetsReady = false;
+    let pageReady = document.readyState === 'complete';
+    let loadedCount = 0;
+    let finishTimer = null;
+
+    const tryFinish = () => {
+      if (!mounted || !assetsReady || !pageReady) return;
+
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
+
+      finishTimer = window.setTimeout(() => {
+        if (mounted) {
+          setIsLoading(false);
+        }
+      }, remaining);
     };
 
-    if (document.readyState === 'complete') {
-      setIsLoading(false);
+    const onAssetLoad = () => {
+      loadedCount += 1;
+      if (loadedCount >= assets.length) {
+        assetsReady = true;
+        tryFinish();
+      }
+    };
+
+    assets.forEach((url) => {
+      const img = new Image();
+      img.onload = onAssetLoad;
+      img.onerror = onAssetLoad;
+      img.src = url;
+    });
+
+    const handleLoad = () => {
+      pageReady = true;
+      tryFinish();
+    };
+
+    if (pageReady) {
+      handleLoad();
     } else {
       window.addEventListener('load', handleLoad);
-      return () => window.removeEventListener('load', handleLoad);
     }
+
+    const timeoutId = setTimeout(() => {
+      if (mounted) {
+        setIsLoading(false);
+      }
+    }, 5000);
+
+    return () => {
+      mounted = false;
+      clearTimeout(timeoutId);
+      if (finishTimer) clearTimeout(finishTimer);
+      window.removeEventListener('load', handleLoad);
+    };
   }, []);
 
   return { isLoading };

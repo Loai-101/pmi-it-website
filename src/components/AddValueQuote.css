@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=MonteCarlo&family=Mrs+Saint+Delafield&display=swap');
-
 /* ================================================================
    Add Value — premium quote section + typewriter
    ================================================================ */
+
 .add-value-quote {
   position: relative;
   width: 100%;
@@ -49,7 +48,6 @@
 }
 
 .add-value-title {
-  display: block;
   margin: 0 0 clamp(0.75rem, 2vw, 1.25rem);
   padding: 0;
   border: none;
@@ -58,30 +56,28 @@
     'Bromello',
     'Signatura Monoline',
     'Amsterdam Signature',
-    'MonteCarlo',
-    'Mrs Saint Delafield',
     'Allura',
     'Great Vibes',
-    cursive !important;
-  font-size: clamp(5rem, 6vw + 2rem, 7.5rem) !important;
-  font-weight: 400 !important;
-  font-style: normal !important;
-  line-height: 0.95 !important;
-  letter-spacing: 0.03em !important;
+    cursive;
+  font-size: clamp(5rem, 6vw + 2rem, 7.5rem);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0.02em;
   text-align: center;
-  text-transform: none !important;
-  color: #f3e8ff !important;
-  -webkit-text-fill-color: #f3e8ff !important;
-  background: none !important;
-  transform: rotate(-4deg);
+  text-transform: none;
+  color: transparent;
+  background: linear-gradient(135deg, #ddd6fe 0%, #a78bfa 28%, #667eea 52%, #c4b5fd 78%, #764ba2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: rotate(-3.5deg);
   transform-origin: center center;
-  text-shadow:
-    0 2px 28px rgba(167, 139, 250, 0.55),
-    0 0 60px rgba(102, 126, 234, 0.25);
+  filter: drop-shadow(0 6px 28px rgba(102, 126, 234, 0.28));
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  white-space: nowrap;
 }
+
 .add-value-text {
   margin: 0;
   padding: 0;

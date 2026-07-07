@@ -1,53 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import './LoadingSpinner.css';
 
+const PMI_LOGO_LOCAL = `${process.env.PUBLIC_URL}/pmi-it-logo.png`;
+const PMI_LOGO_REMOTE =
+  'https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png';
+const BACKGROUND_IMAGE =
+  'https://res.cloudinary.com/dvybb2xnc/image/upload/v1783333390/ChatGPT_Image_Jul_6_2026_01_21_52_PM_iuw4k7.png';
+
 const LoadingSpinner = ({ isLoading = true, onLoadingComplete }) => {
   const [isVisible, setIsVisible] = useState(true);
-  const [loadingText, setLoadingText] = useState('Loading PMI IT');
-  const [loadingSubtitle, setLoadingSubtitle] = useState('Preparing your experience...');
+  const [logoSrc, setLogoSrc] = useState(PMI_LOGO_LOCAL);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     if (!isLoading) {
-      // Start fade out animation
       setIsVisible(false);
-      
-      // Wait for animation to complete, then call onLoadingComplete
+
       const timer = setTimeout(() => {
         if (onLoadingComplete) {
           onLoadingComplete();
         }
-      }, 500); // Match the CSS transition duration
+      }, 500);
 
       return () => clearTimeout(timer);
     }
   }, [isLoading, onLoadingComplete]);
 
   useEffect(() => {
-    // Rotate through different loading messages
-    const messages = [
-      'Loading PMI IT',
-      'Initializing Services',
-      'Preparing Solutions',
-      'Setting Up Experience'
-    ];
+    if (!isLoading) return undefined;
 
-    const subtitles = [
-      'Preparing your experience...',
-      'Loading our services...',
-      'Setting up solutions...',
-      'Almost ready...'
-    ];
-
-    let currentIndex = 0;
     const interval = setInterval(() => {
-      if (isLoading) {
-        currentIndex = (currentIndex + 1) % messages.length;
-        setLoadingText(messages[currentIndex]);
-        setLoadingSubtitle(subtitles[currentIndex]);
-      }
-    }, 2000);
+      setProgress((prev) => (prev >= 92 ? prev : prev + Math.random() * 12));
+    }, 280);
 
     return () => clearInterval(interval);
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (!isLoading) {
+      setProgress(100);
+    }
   }, [isLoading]);
 
   if (!isVisible) {
@@ -55,17 +47,48 @@ const LoadingSpinner = ({ isLoading = true, onLoadingComplete }) => {
   }
 
   return (
-    <div className={`loading-spinner ${!isLoading ? 'fade-out' : ''}`}>
-      <div className="spinner-container">
-        <div className="logo-spinner">
-          <img src="https://res.cloudinary.com/dvybb2xnc/image/upload/v1751550832/pmi-it-logo_pegnsp.png" alt="PMI IT Logo" />
+    <div className={`loading-spinner ${!isLoading ? 'fade-out' : ''}`} role="status" aria-live="polite">
+      <img
+        src={BACKGROUND_IMAGE}
+        alt=""
+        className="loading-bg-image"
+        decoding="async"
+      />
+      <div className="loading-bg-shade" aria-hidden="true" />
+      <div className="loading-spinner-glow" aria-hidden="true" />
+
+      <div className="loading-spinner-inner">
+        <div className="loading-hero-brand">
+          <img
+            src={logoSrc}
+            alt="PMI IT Logo"
+            className="loading-hero-logo"
+            width={72}
+            height={72}
+            decoding="async"
+            onError={() => {
+              if (logoSrc !== PMI_LOGO_REMOTE) {
+                setLogoSrc(PMI_LOGO_REMOTE);
+              }
+            }}
+          />
+          <span className="loading-hero-title">PMI IT Solutions</span>
         </div>
-        <div className="spinner"></div>
-        <div className="loading-text">{loadingText}</div>
-        <div className="loading-subtitle">{loadingSubtitle}</div>
+
+        <div className="loading-progress" aria-hidden="true">
+          <div className="loading-progress-track">
+            <div
+              className="loading-progress-bar"
+              style={{ width: `${Math.min(progress, 100)}%` }}
+            />
+          </div>
+        </div>
+
+        <p className="loading-text">Loading PMI IT Solutions</p>
+        <p className="loading-subtitle">Preparing your experience...</p>
       </div>
     </div>
   );
 };
 
-export default LoadingSpinner; 
+export default LoadingSpinner;
